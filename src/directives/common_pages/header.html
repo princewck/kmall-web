@@ -1,0 +1,44 @@
+<div id="site-nav">
+    <div id="sn-content">
+        <div class="login-info">
+            <em>嗨，欢迎来到天猫</em>
+            <span class="login-area">
+                <a href="#" >请登录</a>
+                <a href="#">免费注册</a>
+            </span>
+        </div>
+        <div class="sn-quick-menu">
+            <ul>
+                <li ng-class="{active: activeQuickMenuItem == 0}" data-ng-mouseenter="mouseenter(0)" data-ng-mouseleave="mouseleave()">
+                    <a href="#" class="title" >我的账户</a>
+                    <ul class="bd" data-ng-mouseenter="mouseenter(0)">
+                        <li><a href="" class="title">买到的宝贝</a></li>
+                        <li><a href="" class="title">已卖出的宝贝</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">我关注的品牌</a>
+                </li>
+                <li>
+                    <a href="#">购物车0件</a>
+                </li>
+                <li ng-class="{active: activeQuickMenuItem == 3}" data-ng-mouseenter="mouseenter(3)" data-ng-mouseleave="mouseleave()">
+                    <a href="#" class="title">收藏夹</a>
+                    <ul class="bd" data-ng-mouseenter="mouseenter(3)">
+                        <li><a href="" class="title">收藏的宝贝</a></li>
+                        <li><a href="" class="title">收藏的店铺</a></li>
+                    </ul>                        
+                </li>
+                <li>
+                    <a href="#">手机版</a>
+                </li>
+                <li>
+                    <a href="#" class="title">商家合作</a>
+                </li>
+                <li>
+                    <a href="">网站导航</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>   

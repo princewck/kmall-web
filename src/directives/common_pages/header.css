@@ -1,0 +1,99 @@
+#site-nav {
+    height: 32px;
+    background: #f2f2f2;
+    border-bottom: 1px solid rgb(229,229,229);
+}
+
+#site-nav .login-area a {
+    color:#999;
+    display: inline-block;
+    width:auto;
+    margin-left:20px;
+    text-decoration: none;
+}
+
+#site-nav .login-area a:link {
+   color:#999;
+}
+
+#site-nav .login-area a:hover {
+    color: #c40000;
+}
+
+#sn-content {
+    height: 32px;
+    font-size: 0.8em;
+    margin: auto;
+    position: relative;
+    max-width: 1000px;
+}
+
+#sn-content .login-info {
+    height: 32px;
+    line-height: 32px;
+    display: inline-block;
+    color: #999;
+}
+
+#sn-content .sn-quick-menu {
+    top:0;
+    right:0;
+    position:absolute;
+    z-index: 9999;
+}
+
+#sn-content .sn-quick-menu>ul>li {
+    display: inline-block;
+    width: auto;
+    padding:0 8px;
+    line-height:32px;
+}
+
+#sn-content .sn-quick-menu>ul>li>ul {
+    display: none;
+    overflow: hidden;
+}
+
+#sn-content .sn-quick-menu>ul>li.active {
+    background-color: #ffffff;
+    /*border-bottom: 1px solid #fff;*/
+    border-bottom:0;
+}
+
+#sn-content .sn-quick-menu>ul>li.active>ul {
+    display: block;
+    animation:expandUl 0.5s ease;
+    animation-fill-mode: both;
+}
+
+@keyframes expandUl {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+#sn-content .sn-quick-menu>ul>li a {
+    text-decoration: none;
+    color:#999;
+}
+
+#sn-content .sn-quick-menu>ul>li a:hover {
+    color:#c40000;
+}
+
+#sn-content .sn-quick-menu>ul>li a.title:hover {
+    text-decoration: underline;
+}
+
+#sn-content .sn-quick-menu ul.bd {
+    position:absolute;
+    z-index:9998;
+    top:32px;
+    border:1px solid rgb(229,229,229);
+    border-top:none;
+    padding:5px 10px;
+    margin-left:-9px;
+    background-color: #fff;
+}

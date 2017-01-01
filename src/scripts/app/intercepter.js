@@ -3,21 +3,21 @@ define(['app'], function(app) {
         return {
           'request': function(config) {
                   // TODO: 过滤所有url,如果是需要加小尾巴的加上小尾巴
-                  if (config.url.indexOf('.html') > 0 && HashStaticFile) {
-                      config.url = HashStaticFile(config.url);
-                  }
-              if (config.url.indexOf('api/') >= 0) {
-                  var token = $cookies.get("sessionToken");
-                  if (token) {
-                      token = token.replace('/^"$/','');
-                  } else {
-                      token = '';
-                  }
-                  config.headers["F-Session"] = token;
-                  config.cache = false;
+              //     if (config.url.indexOf('.html') > 0 && HashStaticFile) {
+              //         config.url = HashStaticFile(config.url);
+              //     }
+              // if (config.url.indexOf('api/') >= 0) {
+              //     var token = $cookies.get("sessionToken");
+              //     if (token) {
+              //         token = token.replace('/^"$/','');
+              //     } else {
+              //         token = '';
+              //     }
+              //     config.headers["F-Session"] = token;
+              //     config.cache = false;
 
-                  // do something on success
-              }
+              //     // do something on success
+              // }
                 return config;
           },
 

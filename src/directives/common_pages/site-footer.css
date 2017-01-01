@@ -1,0 +1,118 @@
+#site-footer {
+    border-top:1px solid #ddd;
+    padding-top:30px;
+    position: relative;
+    width: 100%;
+    margin: auto;
+    height: auto;
+    overflow: auto;
+    }
+
+#site-footer a,
+#site-footer a:hover {
+    text-decoration: none;
+}
+
+#site-footer .site-footer-list {
+    display: block;
+    width:1000px;
+    margin: auto;
+}
+
+#site-footer .site-footer-list li{
+    list-style: none;
+}
+
+#site-footer .site-footer-list>li {
+    display: block;
+    float:left;
+    margin-right:-4px;
+    box-sizing: border-box;
+    width:20%;
+}
+
+#site-footer .site-footer-list>li>a {
+    line-height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    color:#999;
+}
+
+#site-footer .site-footer-list>li>ul>li {
+    padding:5px 15px 5px 0;
+    font-size: 13px;
+}
+
+#site-footer .site-footer-list>li>ul>li>a {
+    color:#999;
+}
+
+#site-footer .footer-info-wrapper {
+    width: 100%;
+    overflow: auto;
+    background: #000;
+    border-top:2px solid #c40000;
+    min-height:100px;
+    padding-top:15px;
+}
+
+#site-footer .footer-info-wrapper,
+#site-footer .footer-info-wrapper a,
+#site-footer .footer-info-wrapper a:hover,
+#site-footer .footer-info-wrapper a:link {
+    color:#ccc;
+    font-size:13px;
+}
+
+#site-footer .footer-info {
+    width: 1000px;
+    margin: auto;
+}
+
+#site-footer .friend-links {
+    width:100%;
+    display: block;
+}
+
+#site-footer .friend-links >li {
+    display: inline-block;
+    margin-right: -4px;
+    padding: 5px 15px;
+    border-right: 1px solid #ddd;
+    font-size:13px;
+}
+
+#site-footer .friend-links >li:first-of-type {
+    padding-left: 0;
+}
+
+#site-footer .friend-links >li:last-of-type {
+    border-right: 0;
+}
+
+#site-footer .friend-links >li a {
+    text-decoration: none;
+}
+
+#site-footer .site-credentials {
+    display: block;
+    padding-top:10px; 
+}
+
+#site-footer .site-credentials li{
+    display: inline-block;
+    margin-right:-4px;
+    padding: 5px 65px 5px 0;
+    color:#999;
+    font-size:12px;
+}
+
+#site-footer .site-credentials li:first-of-type {
+    padding-left: 0;
+}
+
+#site-footer .site-copyright {
+    color: #555;
+    padding: 12px 0;
+    font-size: 12px;
+}

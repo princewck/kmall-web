@@ -1,8 +1,7 @@
 var BOWER_DIR = './bower_components';
 require.config({
     baseUrl: './',
-    //为文件添加小尾巴
-    // urlArgs:"version=0.5.0",
+    urlArgs:"version=0.0.1",
     waitSeconds: 0,
     paths: {
         'angular': BOWER_DIR + '/angular/angular.min',
@@ -10,13 +9,17 @@ require.config({
         'angular-moment': BOWER_DIR + '/angular-moment/angular-moment.min',
         'angular-require': BOWER_DIR + '/angular-require/angular-require.min',
         'angular-ui-router': BOWER_DIR + '/angular-ui-router/release/angular-ui-router.min',
-        'angular-cookie':"http://cdn.bootcss.com/angular.js/1.4.6/angular-cookies.min",
+        'angular-cookie': "http://cdn.bootcss.com/angular.js/1.4.6/angular-cookies.min",
         'jquery': BOWER_DIR + '/jquery/dist/jquery.min',
         'moment': BOWER_DIR + '/moment/min/moment.min',
         //项目相关
         'app': './scripts/app',
         'routes': './scripts/app/routes',
-        'intercepter': './scripts/app/intercepter'
+        'intercepter': './scripts/app/intercepter',
+
+        'site-nav': '/directives/common_pages/header',
+        'search-bar': '/directives/common_pages/search-bar',
+        'site-footer': '/directives/common_pages/site-footer'
     },
     map: {
         '*': {
@@ -48,19 +51,19 @@ require.config({
         },
         'app': {
             //files to be load before start
-            deps: ['angular', 'angular-ui-router', 'angular-require', 'angular-animate', 'angular-cookie'],
+            deps: ['angular', 'angular-ui-router', 'angular-require', 'angular-animate', 'angular-cookie', 'css!styles/reset.css'],
             exports: 'app'
         }
     }
 });
-//require错误处理,否则默认会去访问官网,国外很慢
-require.onError = function(err){
-    console.log("require error:",err,arguments);
+
+require.onError = function (err) {
+    console.log("require error:", err, arguments);
 }
 
-requirejs(['app'], function() {
-    console.log('callback');
-    requirejs(['routes', 'intercepter'], function() {
+var commonPages = ['site-nav', 'search-bar', 'site-footer'];
+requirejs(['app'], function () {
+    requirejs(['routes', 'intercepter'].concat(commonPages), function () {
         angular.bootstrap(document, ['kapp']);
     });
 });
