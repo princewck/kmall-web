@@ -19,7 +19,9 @@ require.config({
 
         'site-nav': '/directives/common_pages/header',
         'search-bar': '/directives/common_pages/search-bar',
-        'site-footer': '/directives/common_pages/site-footer'
+        'site-footer': '/directives/common_pages/site-footer',
+        //轮播图
+        'kslider': '/directives/common_pages/slider'
     },
     map: {
         '*': {
@@ -61,7 +63,7 @@ require.onError = function (err) {
     console.log("require error:", err, arguments);
 }
 
-var commonPages = ['site-nav', 'search-bar', 'site-footer'];
+var commonPages = ['site-nav', 'search-bar', 'site-footer', 'kslider'];
 requirejs(['app'], function () {
     requirejs(['routes', 'intercepter'].concat(commonPages), function () {
         angular.bootstrap(document, ['kapp']);
