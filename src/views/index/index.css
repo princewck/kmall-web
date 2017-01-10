@@ -1,14 +1,16 @@
 #home-page {
-    min-weight: 990px;
+    min-width: 990px;
     width: 100%;
+    overflow-x: hidden;
 }
 
 #content {
     width: 100%;
+    background: #f5f5f5;
 }
 #main-nav {
     width:100%;
-    padding-top:15px;
+    /*padding-top:15px;*/
 }
 
 #main-nav>.main-nav-list-wrapper {
@@ -20,9 +22,6 @@
 #main-nav .main-nav-list {
     display: block;
     margin: auto;
-    width: 1000px;
-    margin-left: 300px;
-    padding-left:150px;
     line-height: 32px;
     height:32px;
     font-size:0.9em;
@@ -31,7 +30,6 @@
 #main-nav .main-nav-list>li {
     list-style: none;
     display: inline-block;
-    margin-right:22px;
     position: relative;
 }
 
@@ -71,23 +69,19 @@
 
 #banner-slider .cate_block {
     box-sizing: border-box;
-    width:200px;
     height:100%;
     position: absolute;
     left: 50%;
     top:0;
-    margin-left:-600px;
     z-index:20000;
     color: #fff;
     font-size:14px;
     line-height:30px;
-    padding-left:15px;
 }
 
 #banner-slider .cate_block  .logo-block {
     position: absolute;
-    margin-top:-162px;
-    margin-left:-50px;
+    overflow: hidden;
 }
 
 #banner-slider .cate_block  .cate-title {
@@ -111,6 +105,7 @@
 #banner-slider .cate_block .cate-content {
     background: rgba(255, 255, 255, .8);
     width:200px;
+    height:100%;
     position: absolute;
     top:0;
     left:0;
@@ -118,4 +113,147 @@
     margin-left: 15px;
     padding-left:15px;
     color:#555;
+}
+
+#banner-slider .user-login-block {
+    top:0;
+    height: 100%;
+    position:absolute;
+    background-color: rgba(0,0,0,.4);
+    color: #ccc;
+    color: rgba(255, 255, 255, .8);
+    transition: all 0.5s;
+    box-sizing: border-box;
+}
+
+#banner-slider .user-login-block:hover {
+    background-color: rgba(0,0,0,.6);
+}
+
+#banner-slider .user-login-block .login-and-register {
+    width:100%;
+    text-align: center;
+    padding:15px;
+    box-sizing: border-box;
+}
+
+#banner-slider .user-login-block .login-info {
+    font-size:0.8em;
+    text-align: center;
+    margin-top:5px;
+    border-bottom: 1px dotted #888;
+    padding-bottom:15px;
+}
+
+#banner-slider .user-login-block .login-info p {
+    line-height: 22px;
+}
+
+#banner-slider .user-login-block .login-info p a {
+    color:#ddd;
+}
+
+#banner-slider .user-login-block .login-info  .login-btn {
+    background: #c40000;
+    border: 1px solid #888;
+    line-height: 1em;
+    font-size: 0.7em;
+    text-align: center;
+    display: inline-block;
+    padding:3px 15px;
+    border-radius: 1em;
+}
+
+
+#banner-slider .user-login-block .login-info a:hover {
+    text-decoration: underline;
+}
+
+#banner-slider .user-login-block .login-and-register img{
+    display: inline;
+}
+
+
+
+
+
+
+
+/*@media screen and (max-width: 768px) {
+    #index-group-wrapper .index-group{
+        width:760px;
+    }    
+}*/
+
+@media screen and (max-width: 1024px) {
+    #main-nav .main-nav-list {
+      width: 880px;
+      margin-left: 155px;
+      padding-left:80px;      
+    }
+
+    #main-nav .main-nav-list>li {
+        margin-right: 16px;
+    }
+    #banner-slider .cate_block {
+        padding-left:15px;
+        width:160px;
+        margin-left:-500px;
+    }
+    #banner-slider .cate_block  .logo-block {
+        height: 120px;
+        margin-top:-152px;
+        margin-left:-40px;
+    }
+
+    #banner-slider .cate_block  .logo-block img {
+        width:240px;
+        height:120px;
+    }
+
+    #banner-slider .user-login-block {
+        width:150px;
+        right: 50%;
+        opacity: 0;
+        overflow: hidden;
+    }
+
+    #block-group-wrapper {
+        width:100%;
+        overflow: auto;
+        height:auto;
+    }
+
+
+
+}
+
+@media screen and (min-width: 1025px) {
+    #main-nav .main-nav-list {
+      width: 1000px;
+      margin-left: 300px;
+      padding-left:150px;
+    }
+    #main-nav .main-nav-list>li {
+        margin-right: 22px;
+    }
+    #banner-slider .cate_block {
+        padding-left:15px;
+        width:200px;
+        margin-left:-600px;
+    }
+    #banner-slider .cate_block  .logo-block  {
+        margin-top:-152px;
+        height:120px;
+        margin-left:-40px;
+    }
+    #banner-slider .cate_block  .logo-block img {
+        width:240px;
+        height:120px;
+    }  
+    #banner-slider .user-login-block {
+        width:150px;
+        right: 50%;
+        margin-right: -550px;
+    }       
 }

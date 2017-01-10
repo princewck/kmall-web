@@ -34,3 +34,11 @@ footer, header, hgroup, menu, nav, section {
 em, i {
     font-style: normal;
 }
+
+a,a:visited,a:link {
+    text-decoration: none;
+}
+
+div {
+    box-sizing: border-box;
+}

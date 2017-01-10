@@ -5,7 +5,6 @@
 #search-bar fieldset{
     padding:0;
     margin: auto;
-    width:625px;
     border: 2px solid #c40000;
     box-sizing: content-box;
     position: relative;
@@ -14,7 +13,6 @@
 #search-bar .search-bar-input {
     box-sizing: border-box;
     height: 36px;
-    width: 490px;
     display: block;
     padding: 5px 5px;
     font: 16px/22px Arial;
@@ -26,7 +24,6 @@
     top:0;
     box-sizing: border-box;
     height: 36px;
-    width: 135px;
     display: block;
     background-color: #c40000;
     color:#fff;
@@ -36,11 +33,12 @@
 
 #search-bar .hot-search {
     display: block;
-    width: 628px;
     height:32px;
     font-size:13px;
     padding-top:10px;
     margin: auto;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 #search-bar .hot-search>li {
@@ -67,4 +65,35 @@
 
 #search-bar .hot-search a:hover {
     transform: translateY(2px);
+}
+
+
+@media screen and (min-width:1025px) {
+    #search-bar fieldset {
+        width:625px;
+    }
+    #search-bar .search-bar-input {
+        width: 490px;
+    }
+    #search-bar .search-bar-submit {
+        width: 135px;
+    }
+    #search-bar .hot-search  {
+        width: 628px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    #search-bar fieldset {
+        width:500px;
+    }
+    #search-bar .search-bar-input {
+        width: 370px;
+    }
+    #search-bar .search-bar-submit {
+        width: 130px;
+    }
+    #search-bar .hot-search  {
+        width: 502px;
+    }
 }

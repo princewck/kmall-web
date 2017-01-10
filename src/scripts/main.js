@@ -9,6 +9,7 @@ require.config({
         'angular-moment': BOWER_DIR + '/angular-moment/angular-moment.min',
         'angular-require': BOWER_DIR + '/angular-require/angular-require.min',
         'angular-ui-router': BOWER_DIR + '/angular-ui-router/release/angular-ui-router.min',
+        'angular-touch': BOWER_DIR + '/angular-touch/angular-touch.min',
         'angular-cookie': "http://cdn.bootcss.com/angular.js/1.4.6/angular-cookies.min",
         'jquery': BOWER_DIR + '/jquery/dist/jquery.min',
         'moment': BOWER_DIR + '/moment/min/moment.min',
@@ -21,7 +22,9 @@ require.config({
         'search-bar': '/directives/common_pages/search-bar',
         'site-footer': '/directives/common_pages/site-footer',
         //轮播图
-        'kslider': '/directives/common_pages/slider'
+        'kslider': '/directives/common_pages/slider',
+        'block-group': '/directives/pages/block_group/block_group',
+        'guess-you-like': '/directives/pages/guess_u_like/guess_u_like'
     },
     map: {
         '*': {
@@ -53,8 +56,11 @@ require.config({
         },
         'app': {
             //files to be load before start
-            deps: ['angular', 'angular-ui-router', 'angular-require', 'angular-animate', 'angular-cookie', 'css!styles/reset.css'],
+            deps: ['angular', 'angular-ui-router', 'angular-require', 'angular-animate', 'angular-cookie', 'angular-touch', 'css!styles/reset.css', 'css!styles/base.css'],
             exports: 'app'
+        },
+        'angular-touch': {
+            deps: ['angular']
         }
     }
 });
@@ -63,7 +69,7 @@ require.onError = function (err) {
     console.log("require error:", err, arguments);
 }
 
-var commonPages = ['site-nav', 'search-bar', 'site-footer', 'kslider'];
+var commonPages = ['site-nav', 'search-bar', 'site-footer', 'kslider', 'block-group', 'guess-you-like'];
 requirejs(['app'], function () {
     requirejs(['routes', 'intercepter'].concat(commonPages), function () {
         angular.bootstrap(document, ['kapp']);
