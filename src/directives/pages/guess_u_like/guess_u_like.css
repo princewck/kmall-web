@@ -4,8 +4,93 @@
 
 .guess-wrapper .guess-content {
     margin: auto;
-    background:lightslategray;
-    height:300px;/*delete*/
+}
+
+.guess-content .guess-title {
+    text-align: center;
+    padding:15px 0;
+    line-height: 20px;
+}
+
+.guess-content .guess-title span {
+    font-size: 18px;
+    line-height: 20px;
+    color: #979797;
+    position: relative;
+    background: #f5f5f5;
+}
+
+.guess-content .guess-title span img {
+    height:18px;
+    position: relative;
+    top:2px;
+    margin-right: 5px;
+}
+
+.guess-content .guess-title span:before,
+.guess-content .guess-title span:after  {
+    content:'';
+    position: absolute;
+    width: 30px;
+    height:1px;
+    top:12px;
+    background: #979797;
+}
+.guess-content .guess-title span:before {
+    left: -38px;
+}
+.guess-content .guess-title span:after {
+    right:-38px;
+}
+
+.guess-body {
+    width:100%;
+    overflow: hidden;
+}
+
+.guess-body .guess-item-wrapper {
+    float:left;
+    padding:2px;
+}
+
+.guess-body .guess-item-wrapper .guess-item {
+    display: block;
+    border: 1px solid #f5f5f5;
+    background: #fff;
+}
+
+.guess-body .guess-item-wrapper .guess-item:hover {
+    opacity: .8;
+}
+
+.guess-body .guess-item-wrapper .guess-item .item-pic,
+.guess-body .guess-item-wrapper .guess-item .item-pic> img,
+.guess-body .guess-item-wrapper .guess-item .item-info {
+    box-sizing: border-box;
+    width:100%;
+    display: block;
+}
+
+.guess-body .item-desc {
+    color:#575757;
+    font-size:13px;
+    line-height: 14px;
+    text-align: left;
+    padding: 0 10px;
+    display: inline-block;
+}
+
+.guess-body .guess-item-wrapper .guess-item:hover {
+    border: 1px solid #c40000;   
+}
+
+.guess-body .guess-item-wrapper .item-detail {
+    display: inline-block;
+    color:red;
+    font-size:16px;
+    line-height: 30px;
+    text-align: left;
+    padding: 0 10px;
 }
 
 
@@ -13,22 +98,47 @@
    .guess-wrapper .guess-content {
        width: 800px;
    }
+
+   .guess-body-adjuster {
+       width:820px;
+   }
+   .guess-body .guess-item-wrapper {
+       width:200px;
+   }   
 }
 
 @media screen and (min-width: 1024px) and (max-width:1279px) { 
    .guess-wrapper .guess-content {
        width: 1000px;
-   }          
+   }      
+   .guess-body-adjuster {
+       width: 1024px;
+   }   
+   .guess-body .guess-item-wrapper {
+       width:250px;
+   }    
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1919px) {
    .guess-wrapper .guess-content {
        width: 1200px;
-   }          
+   }  
+   .guess-body-adjuster {
+       width: 1240px;
+   }        
+   .guess-body .guess-item-wrapper {
+       width:240px;
+   }
 }
 
 @media screen and (min-width:1920px) {
    .guess-wrapper .guess-content {
        width: 1440px;
-   }     
+   } 
+   .guess-body-adjuster {
+       width: 1480px;
+   }    
+   .guess-body .guess-item-wrapper {
+       width:288px;
+   }   
 }

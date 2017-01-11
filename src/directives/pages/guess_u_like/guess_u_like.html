@@ -1,10 +1,24 @@
 <div class="guess-wrapper">
     <div class="guess-content">
         <div class="guess-title">
-            <h5 style="text-align: center;padding:15px;color:aliceblue;">猜你喜欢区域</h5>
+            <span><img src="images/zan_red.png">猜你喜欢</span>
         </div>
         <div class="guess-body">
-
+            <div class="guess-body-adjuster">
+                <div class="guess-item-wrapper" ng-repeat="item in items">
+                    <div class="guess-item">
+                        <a ng-href="{{ item.link }}">
+                        <span class="item-pic">
+                            <img ng-src="{{ item.image }}">
+                        </span>
+                        <span class="item-info">
+                            <span class="item-desc"> {{ item.title }} </span>
+                            <span class="item-detail">{{ item.price | number: 1 | currency: '￥' }}</span>
+                        </span>
+                        </a>
+                    </div>              
+                </div>                
+            </div>
         </div>
     </div>
 </div>
