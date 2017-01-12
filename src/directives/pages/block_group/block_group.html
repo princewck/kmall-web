@@ -1,17 +1,32 @@
 <div class="block-group-wrapper">
     <div class="block-group-title">
-        
+        <span>活动专区</span>
     </div>
     <div class="block-group-content">
         <div class="block-group">
-            <div class="block-group-item"></div>
-            <div class="block-group-item"></div>
-            <div class="block-group-item"></div>
+            <a class="block-group-item" ng-repeat="block in blocks[pageIndex]" ng-href="{{ block.link }}" target="_blank">
+                <div class="block-group-title-container">
+                    <div class="block-group-title"> {{ block.title }} </div>
+                    <div class="block-group-subtitle">{{ block.sub_title }}</div>
+                </div>
+                <div class="pic-container">
+                    <div class="block-group-mask"></div>
+                    <div class="block-group-pic"><img ng-src="{{ block.main_pic }}"></div>
+                </div>
+            </a>
         </div>
         <div class="block-group">
-            <div class="block-group-item"></div>
-            <div class="block-group-item"></div>
-            <div class="block-group-item"></div>
-        </div>
+            <a class="block-group-item" ng-repeat="block in blocks[pageIndex+1]" ng-href="{{ block.link }}" target="_blank">
+                <div class="block-group-title-container">
+                    <div class="block-group-title"> {{ block.title }} </div>
+                    <div class="block-group-subtitle">{{ block.sub_title }}</div>
+                </div>
+                <div class="pic-container">
+                    <div class="block-group-mask"></div>
+                    <div class="block-group-pic"><img ng-src="{{ block.main_pic }}"></div>
+                </div>
+            </a>
+        </div>        
+
     </div>
 </div>

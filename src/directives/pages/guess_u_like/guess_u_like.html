@@ -6,8 +6,7 @@
         <div class="guess-body">
             <div class="guess-body-adjuster">
                 <div class="guess-item-wrapper" ng-repeat="item in items">
-                    <div class="guess-item">
-                        <a ng-href="{{ item.link }}">
+                    <a data-ng-href="{{ item.link }}" class="guess-item" target="_blank">
                         <span class="item-pic">
                             <img ng-src="{{ item.image }}">
                         </span>
@@ -15,8 +14,7 @@
                             <span class="item-desc"> {{ item.title }} </span>
                             <span class="item-detail">{{ item.price | number: 1 | currency: '￥' }}</span>
                         </span>
-                        </a>
-                    </div>              
+                    </a>              
                 </div>                
             </div>
         </div>
