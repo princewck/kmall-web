@@ -1,0 +1,39 @@
+.nav-bar-wrapper {
+    width: 100%;
+    height:35px;
+    background: #c40000;
+}
+
+.nav-bar-list {
+    display: block;
+    margin: auto;
+    position: relative;
+}
+
+.nav-bar-list li {
+    display: inline;
+    margin-left:20px;
+    margin-right:22px;
+}
+
+.nav-bar-list li a {
+    color: #fff;
+    line-height: 35px;
+    font-size: 0.9em;
+}
+
+@media screen and (min-width: 801px) and (max-width: 1023px) {
+    .nav-bar-list {width: 800px;}
+}
+
+@media screen and (min-width: 1024px) and (max-width:1279px) {
+    .nav-bar-list {width: 1000px;}
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+    .nav-bar-list {width: 1200px;}
+}
+
+@media screen and (min-width:1920px) {
+    .nav-bar-list {width: 1440px;}
+}

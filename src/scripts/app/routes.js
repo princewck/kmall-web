@@ -10,6 +10,17 @@ define(['app'], function(app) {
                 deps: $requireProvider.requireJS(['views/index/index', 'css!views/index/index.css'])
             }
         })
-        //common pages
+        .state('products', {
+            url: '/products',
+            templateUrl: 'views/product_list/products.html',
+            controller: 'productsController',
+            resolve: {
+                deps: $requireProvider.requireJS([
+                    'navbar',
+                    'views/product_list/products', 
+                    'css!views/product_list/products.css',
+                ])
+            }
+        })
     }]);
 });

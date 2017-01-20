@@ -24,7 +24,9 @@ require.config({
         //轮播图
         'kslider': './directives/common_pages/slider',
         'block-group': './directives/pages/block_group/block_group',
-        'guess-you-like': './directives/pages/guess_u_like/guess_u_like'
+        'product-waterfall': './directives/pages/product_waterfall/product_waterfall',
+        'navbar': './directives/common_pages/navbar',
+        'guess-like': './directives/pages/guess_like/guess_like'
     },
     map: {
         '*': {
@@ -69,7 +71,7 @@ require.onError = function (err) {
     console.log("require error:", err, arguments);
 }
 
-var commonPages = ['site-nav', 'search-bar', 'site-footer', 'kslider', 'block-group', 'guess-you-like'];
+var commonPages = ['site-nav', 'search-bar', 'site-footer', 'kslider', 'block-group', 'product-waterfall', 'guess-like'];
 requirejs(['app'], function () {
     requirejs(['routes', 'intercepter'].concat(commonPages), function () {
         angular.bootstrap(document, ['kapp']);
