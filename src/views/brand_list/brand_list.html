@@ -1,0 +1,8 @@
+<div search-bar placeholder="2017新年年货大全"></div>
+<div nav-with-logo="navBarList"></div>
+<div class="brand-showcase">
+    <a class="brand-logo-box" ng-href="item.url" target="_blank" ng-repeat="item in showcaseItems[brandLogoPage] track by $index">
+        <img ng-src="{{ item.img }}" alt=""/>
+        <span>{{ item.title }}</span>
+    </a>
+</div>

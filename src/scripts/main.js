@@ -26,7 +26,8 @@ require.config({
         'block-group': './directives/pages/block_group/block_group',
         'product-waterfall': './directives/pages/product_waterfall/product_waterfall',
         'navbar': './directives/common_pages/navbar',
-        'guess-like': './directives/pages/guess_like/guess_like'
+        'guess-like': './directives/pages/guess_like/guess_like',
+        'nav-with-logo': './directives/pages/nav_with_logo/nav_with_logo'
     },
     map: {
         '*': {

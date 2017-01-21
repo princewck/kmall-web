@@ -1,0 +1,205 @@
+.coupon-content-wrapper {
+    width:100%;
+    background: #f5f5f5;
+}
+
+.coupon-content {
+    overflow: hidden;
+    margin: auto;
+    padding:5px 0;
+}
+
+.coupon-content-adjuster {
+    width: 110%;
+}
+
+.coupon-box {
+    padding:2px;
+    margin:5px 5px 0 0;
+    float:left;
+    border:1px solid #c5c5c5;
+    background: #fff;
+    transition: all ease 1s;
+}
+
+.coupon-box:hover {
+    opacity: .8;
+    border:1px solid red;
+}
+
+.coupon-box .coupon-image {
+    width:40%;
+    float: left;
+    height:auto;
+}
+
+.coupon-box .coupon-image img {
+    width:100%;
+}
+
+.coupon-box .coupon-detail {
+    width: 60%;
+    float: left;
+}
+
+.coupon-detail .coupon-title {
+    display: block;
+    text-align: left;
+    padding: 10px 5px 5px 5px;
+    font-size:0.9em;
+}
+
+.coupon-detail .coupon-sub-title {
+    display: block;
+    text-align: left;
+    padding: 0 5px 5px 5px;
+    font-size:0.7em;
+    color:red;
+}
+
+.coupon-link {
+    display: block;
+    width:100%;
+    padding:5px;
+    overflow: auto;
+    position: relative;
+}
+
+.coupon-link .coupon-price {
+    width:60%;
+    display: block;
+    float:left;
+    padding: 10px 5px 10px 5px;
+}
+
+.coupon-link .coupon-btn-link {
+    display: block;
+    position: absolute;
+    bottom:15px;
+    right:15px;
+    background: #c40000;
+    color:#fff;
+    font-size:1em;
+    height:2em;
+    line-height: 2em;
+    text-align: center;
+    width:40%;
+}
+
+.coupon-link .coupon-btn-link:hover {
+    opacity: .8;
+}
+
+.coupon-link .coupon-price .current{
+    display: block;
+    color: red;
+    font-size:1em;
+    width: 100%;
+}
+
+.coupon-link .coupon-price .current>span {
+    font-size: 1.5em;
+}
+
+.coupon-link .coupon-price .current:before {
+    content: '券后：¥';
+    font-family: arial SimHei serif;
+}
+
+.coupon-link .coupon-price .origin {
+    display: block;
+    color:gray;
+    font-size: 0.6em;
+    text-decoration: line-through;
+    width: 100%;
+}
+
+.coupon-link .coupon-price .origin:before {
+    content: '原价：¥';
+    font-family: arial SimHei serif;
+}
+
+.coupon-detail .coupon-process {
+    display: block;
+    width:100%;
+    padding:5px;
+}
+
+.coupon-detail .coupon-process .progress-text {
+    font-size: .5em;
+    color:gray;
+}
+.progress-bar {
+    display: block;
+    width: 90%;
+    height:5px;
+    border: 1px solid #f5f5f5;
+    border-radius:2px;
+}
+
+.progress-bar span {
+    display: block;
+    height: 100%;
+    background: pink;
+    border-radius:2px;
+    transform-origin: 0 0;
+}
+
+.coupon-box:hover .progress-bar span {
+    animation: bargrow 2s ease 1;
+}
+
+
+@-webkit-keyframes bargrow {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+@keyframes bargrow {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }    
+}
+
+@media screen and (max-width: 1023px) {
+    .coupon-content {
+        width:810px;
+    }
+
+    .coupon-box {
+        width: 400px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width:1279px) { 
+    .coupon-content {
+        width:1010px;
+    }    
+    .coupon-box {
+        width: 500px;
+    }    
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+    .coupon-content {
+        width:1210px;
+    }
+    .coupon-box {
+        width: 400px;
+    }    
+}
+
+@media screen and (min-width:1920px) {
+    .coupon-content {
+        width:1450px;
+    }   
+    .coupon-box {
+        width: 480px;
+    }      
+}

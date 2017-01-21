@@ -1,2 +1,3 @@
-.w {width:100%;}
-.wp50 {width: 50%;}
+body {
+    min-width: 1000px;
+}

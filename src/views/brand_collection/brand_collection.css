@@ -1,0 +1,47 @@
+.brand-info {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 5px;
+}
+
+.brand-info img {
+    display: block;
+    width: 100%;
+    height:auto;
+}
+
+.brand-info .brand-desc {
+    position: absolute;
+    right: 50px;
+    bottom:0;
+    width:300px;
+    height:90%;
+    padding: 15px;
+    font-size:.8em;
+    background: rgba(255,255,255,.9);
+    display: flex;
+}
+
+.brand-info .brand-desc .brand-logo {
+    float: left;
+    width:30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.brand-info .brand-desc .brand-logo img {
+    display: inline-block;
+    width: 100px;
+}
+
+.brand-info .brand-detail {
+    padding: 10px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    float: left;
+    font-size: 12px;
+}
