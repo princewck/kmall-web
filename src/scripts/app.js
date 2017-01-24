@@ -5,7 +5,12 @@ define([], function () {
         $locationProvider.hashPrefix('!');
     }]);
 
-    app.run(['$rootScope', function ($rootScope) {
+    app.run(['$rootScope', '$state', '$compile',  function ($rootScope, $state) {
+        $rootScope.isState = $state.is;
+
+        $rootScope.$on('$stateChangeSuccess', function(){
+            console.log(arguments);
+        });
 
     }]);
 

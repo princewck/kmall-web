@@ -1,6 +1,6 @@
 define(['app'], function(app) {
     app.config(['$stateProvider', '$urlRouterProvider', '$requireProvider', function($stateProvider, $urlRouterProvider, $requireProvider) {
-        $urlRouterProvider.otherwise("/404");
+        $urlRouterProvider.otherwise("/");
         $stateProvider
         .state('index', {
             url: '/',
@@ -57,26 +57,18 @@ define(['app'], function(app) {
                     'css!views/brand_list/brand_list.css'
                 ])
             }
-        })                
-        .state('404', {
-            url: '/404',
-            templateUrl:'views/common/404.html',
+        })
+        .state('login', {
+            url: '/login',
+            templateUrl: 'views/login/login.html',
+            controller: 'loginController',
             resolve: {
-                deps: $requireProvider.requireJS(['css!views/common/404', 'nav-with-logo'])
-            },
-            controller: function($scope) {
-                $scope.navBarList = [
-                    {title: '天猫超市', url: '#/'},
-                    {title: '天猫国际', url: '#/'},
-                    {title: '天猫会员', url: '#/'},
-                    {title: '品牌节', url: '#/'},
-                    {title: '电器城', url: '#/'},
-                    {title: '喵先生', url: '#/'},
-                    {title: '医药馆', url: '#/'},
-                    {title: '营业厅', url: '#/'},
-                    {title: '天天9块9', url: '#/'},
-                ];
+                deps: $requireProvider.requireJS([
+                    'nav-with-logo',
+                    'views/login/login',
+                    'css!views/login/login.css'
+                ])
             }
-        });       
+        })            
     }]);
 });

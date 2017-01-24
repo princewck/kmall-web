@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/> -->
     <!-- <link rel="SHORTCUT ICON" href="favicon.png" type="image/png" /> -->
-	<title>princewck</title>
+	<title>KMALL</title>
 </head>
 <body>
 <div id="home-page">
-	<header>
+	<!-- 写在tag中是为了防止刷新时闪烁 -->
+	<header ng-class="{'ng-hide': 'isState(\'login\')'}">
 		<div header-site-nav></div>
 	</header>        
 	<div ui-view></div>
-	<footer>
+	<footer ng-class="{'ng-hide': 'isState(\'login\')'}">
 		<div site-footer></div>
-	</footer>
+	</footer> 	
 </div>	
 <script type="text/javascript" data-main="scripts/main" src="//apps.bdimg.com/libs/require.js/2.1.11/require.min.js" ></script>
 </body>

@@ -1,0 +1,163 @@
+#login-page { margin: auto; }
+#login-page > div {
+    width: 100%;
+}
+
+#login-page .login-body {
+    background-repeat:no-repeat !important;
+    height: 420px; 
+    position: relative;
+}
+
+.login-panel {
+    background: #fff;
+    background:rgba(255, 255, 255, .6);
+    height: 100%;
+    width: 360px;
+    position: absolute;
+    right:30px;
+}
+.login-panel form {
+    display: block;
+    width: 300px;
+    height: 350px;
+    margin: 30px 35px;
+}
+
+.login-panel form label h4{
+    margin-bottom: 60px;
+}
+
+.login-panel form .input-group {
+    width: 100%;
+    height: 45px;
+    overflow: auto;
+    border: 1px solid #f5f5f5;
+    padding: 0 5px;
+    margin-top:25px;
+}
+
+.login-panel form .input-group span,
+.login-panel form .input-group input{
+   box-sizing: border-box; 
+    display: block;
+    height: 100%;
+    float: left;
+    font: 14px gray;
+}
+
+.login-panel form .input-group input[type="submit"] {
+    width: 100%;
+    background: #c40000;
+    color:#fff;
+    font: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.login-panel form .input-group input[type="submit"]:hover {
+    opacity: .8;
+}
+.no-padiing {
+    padding: 0 !important;
+}
+
+.login-panel form .input-group span {
+    width: 45px;
+}
+
+.login-panel form .input-group input {
+    width: 200px;
+}
+
+.login-panel .username-icon {
+    background: url(/images/sign.png) 45px 45px no-repeat;
+    background-position: 0 0;
+}
+
+.login-panel .pwd-icon {
+    background: url(/images/sign.png) 45px 45px no-repeat;
+    background-position: 0 -50px;
+}
+
+.register-and-forgoten {
+    color:#000;
+    text-align: right;
+    margin: 10px 5px;
+}
+
+.register-and-forgoten span {
+    display: block;
+    float: left;
+    color: gray;
+    font-size: 12px;
+}
+
+.register-and-forgoten a {
+    text-decoration: none;
+    color: gray;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.register-and-forgoten a.register-link {
+    color: #c40000;
+}
+
+.register-and-forgoten a:hover {
+    text-decoration: underline;
+    color: darkgreen;
+}
+
+.login-panel .bd {
+    width: 10px;
+    height:100%;
+    position: absolute;
+    background: url(/images/shadow.png) no-repeat;
+    opacity: .7;
+}
+.login-panel .bd-l {
+    left:0;
+    top:0;    
+}
+
+.login-panel .bd-r {
+    transform: rotateZ(180deg);
+    right:0;
+    top:0;    
+}
+
+#login-page .login-footer {
+    margin-top: 25px;
+}
+
+#login-page .login-footer p {
+    font-size: 12px;
+    color: #000;
+    text-align: center;
+    line-height: 30px;
+}
+
+@media screen and (max-width: 1023px) {
+    #login-page {
+        width:900px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width:1279px) { 
+    #login-page {
+        width:1000px;
+    }   
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+    #login-page {
+        width:1200px;
+    }   
+}
+
+@media screen and (min-width:1920px) {
+    #login-page {
+        width:1440px;
+    }      
+}
