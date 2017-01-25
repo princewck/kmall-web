@@ -7,12 +7,11 @@
 </head>
 <body>
 <div id="home-page">
-	<!-- 写在tag中是为了防止刷新时闪烁 -->
-	<header ng-class="{'ng-hide': 'isState(\'login\')'}">
+	<header ng-if = "(!isState('login') && !isState('register') && !isState('forget'))">
 		<div header-site-nav></div>
 	</header>        
 	<div ui-view></div>
-	<footer ng-class="{'ng-hide': 'isState(\'login\')'}">
+	<footer  ng-if = "(!isState('login') && !isState('register') && !isState('forget'))">
 		<div site-footer></div>
 	</footer> 	
 </div>	

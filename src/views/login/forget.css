@@ -1,0 +1,117 @@
+#login-page { margin: auto; }
+#login-page > div {
+    width: 100%;
+}
+
+#login-page .login-body {
+    background-repeat:no-repeat !important;
+    position: relative;
+}
+
+#login-page .login-body .forget-panel,
+#login-page .login-body .reset-panel {
+    box-sizing: content-box;
+    padding: 20px 10px;
+    width: 400px;
+    margin: 45px auto;
+}
+
+
+#login-page .login-body .forget-panel form,
+#login-page .login-body .reset-panel form {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+#login-page .login-body .input-group {
+    width: 100%;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+#login-page .login-body .input-group label {
+    display: block;
+    font-size: 14px;
+    width: 100%;
+    font-weight: 600;
+}
+
+#login-page .login-body .input-group input {
+    border: 1px solid #f5f5f5;
+    width: 280px;
+    height: 36px;
+    padding-left: 10px;
+    font-size: 14px;
+    margin-top:5px;
+}
+
+.input-group .code-box {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    right:0;
+    bottom:0;
+}
+
+#login-page .login-body .input-group .btn-red {
+    display: block;
+    box-sizing: border-box;
+    width:292px;
+    height:36px;
+    text-align: center;
+    font-size: 16px;
+    color:#fff;
+    margin-top:30px;
+    background: #c40000;
+    background: linear-gradient(red, #c40000);
+}
+
+#login-page .login-body .input-group .btn-red:hover {
+    opacity: .8;
+}
+
+#login-page .login-footer {
+    margin-top: 25px;
+}
+
+#login-page .login-footer p {
+    font-size: 12px;
+    color: #000;
+    text-align: center;
+    line-height: 30px;
+}
+
+.mail-sent h5 {
+    display: block;
+    width: 100%;
+    margin: 30px auto;
+    text-align: center;
+    overflow: auto;
+}
+
+@media screen and (max-width: 1023px) {
+    #login-page {
+        width:900px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width:1279px) { 
+    #login-page {
+        width:1000px;
+    }   
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+    #login-page {
+        width:1200px;
+    }   
+}
+
+@media screen and (min-width:1920px) {
+    #login-page {
+        width:1440px;
+    }      
+}

@@ -69,6 +69,30 @@ define(['app'], function(app) {
                     'css!views/login/login.css'
                 ])
             }
-        })            
+        }) 
+        .state('register', {
+            url: '/register',
+            templateUrl: 'views/login/register.html',
+            controller: 'registerController',
+            resolve: {
+                deps: $requireProvider.requireJS([
+                    'nav-with-logo',
+                    'views/login/register',
+                    'css!views/login/register.css'
+                ])
+            }
+        }) 
+        .state('forget', {
+            url: '/forget',
+            templateUrl: 'views/login/forget.html',
+            controller: 'accountForgetController',
+            resolve: {
+                deps: $requireProvider.requireJS([
+                    'nav-with-logo',
+                    'views/login/forget',
+                    'css!views/login/forget.css'
+                ])
+            }
+        })                            
     }]);
 });

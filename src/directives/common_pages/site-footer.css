@@ -6,6 +6,7 @@
     margin: auto;
     height: auto;
     overflow: auto;
+    animation: fadeIn 2s ease;
     }
 
 #site-footer a,
