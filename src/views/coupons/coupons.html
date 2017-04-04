@@ -1,183 +1,39 @@
 <div search-bar placeholder="2017新年年货大全"></div>
-<div nav-with-logo="navBarList"></div>
+<div nav-with-logo></div>
+<div coupon-list-filter 
+    group-id="{{ groupId }}"
+    categories="{{ categories.join(',') }}" 
+    query = "{{ query }}"
+    on-select="filter(data)"></div>
+
 <div class="coupon-content-wrapper">
     <div class="coupon-content">
         <div class="coupon-content-adjuster">
-            <div class="coupon-box">
-                <div class="coupon-image"><img src="http://img.alicdn.com/imgextra/i3/2912566525/TB2xRulXQTB11BjSspbXXbhcVXa_!!2912566525.jpg_430x430.jpg"></div>
+            <div class="coupon-box" ng-repeat = "p in products">
+                <div class="coupon-image"><img ng-src="{{ p.product_image }}"></div>
                 <div class="coupon-detail">
-                    <span class="coupon-title">【天生一对】太平有象8支情侣牙刷成人软毛</span>
-                    <span class="coupon-sub-title">满29减10</span>
+                    <span class="coupon-title" ng-bind="p.product_name"></span>
+                    <span class="coupon-sub-title" ng-bind="p.coupon_text" ></span>
                     <span class="coupon-link">
                         <span class="coupon-price">
                             <span class="current">
-                                <span>111</span>
+                                <span>{{ getDiscountPrice(p.price, p.coupon_text) }}</span>
                             </span>    
-                            <span class="origin">2000</span>
+                            <span class="origin" ng-bind="p.price"></span>
                         </span>
                         <a href="#" class="coupon-btn-link">马上抢</a>
                     </span>
                     <span class="coupon-process">
                         <span class="progress-bar">
-                            <span style="width: 60%;"></span>
+                            <span ng-style="getProgress(p.coupon_left_amount, p.coupon_total_amount)"></span>
                         </span>
                         <span class="progress-text">
-                            <span class="progress-left">剩余：110000张</span>
-                            <span class="progress-attributed">已领取：100张</span>
+                            <span class="progress-left">剩余：{{p.coupon_left_amount}}张</span>
+                            <span class="progress-attributed">已领取：{{ p.coupon_total_amount - p.coupon_left_amount }}张</span>
                         </span>
                     </span>
                 </div>
-            </div>  
-            <div class="coupon-box">
-                <div class="coupon-image"><img src="http://img.alicdn.com/imgextra/i3/2912566525/TB2xRulXQTB11BjSspbXXbhcVXa_!!2912566525.jpg_430x430.jpg"></div>
-                <div class="coupon-detail">
-                    <span class="coupon-title">【天生一对】太平有象8支情侣牙刷成人软毛</span>
-                    <span class="coupon-sub-title">满29减10</span>
-                    <span class="coupon-link">
-                        <span class="coupon-price">
-                            <span class="current">
-                                <span>111</span>
-                            </span>    
-                            <span class="origin">2000</span>
-                        </span>
-                        <a href="#" class="coupon-btn-link">马上抢</a>
-                    </span>
-                    <span class="coupon-process">
-                        <span class="progress-bar">
-                            <span style="width: 60%;"></span>
-                        </span>
-                        <span class="progress-text">
-                            <span class="progress-left">剩余：110000张</span>
-                            <span class="progress-attributed">已领取：100张</span>
-                        </span>
-                    </span>
-                </div>
-            </div>  
-            <div class="coupon-box">
-                <div class="coupon-image"><img src="http://img.alicdn.com/imgextra/i3/2912566525/TB2xRulXQTB11BjSspbXXbhcVXa_!!2912566525.jpg_430x430.jpg"></div>
-                <div class="coupon-detail">
-                    <span class="coupon-title">【天生一对】太平有象8支情侣牙刷成人软毛</span>
-                    <span class="coupon-sub-title">满29减10</span>
-                    <span class="coupon-link">
-                        <span class="coupon-price">
-                            <span class="current">
-                                <span>111</span>
-                            </span>    
-                            <span class="origin">2000</span>
-                        </span>
-                        <a href="#" class="coupon-btn-link">马上抢</a>
-                    </span>
-                    <span class="coupon-process">
-                        <span class="progress-bar">
-                            <span style="width: 60%;"></span>
-                        </span>
-                        <span class="progress-text">
-                            <span class="progress-left">剩余：110000张</span>
-                            <span class="progress-attributed">已领取：100张</span>
-                        </span>
-                    </span>
-                </div>
-            </div>  
-            <div class="coupon-box">
-                <div class="coupon-image"><img src="http://img.alicdn.com/imgextra/i3/2912566525/TB2xRulXQTB11BjSspbXXbhcVXa_!!2912566525.jpg_430x430.jpg"></div>
-                <div class="coupon-detail">
-                    <span class="coupon-title">【天生一对】太平有象8支情侣牙刷成人软毛</span>
-                    <span class="coupon-sub-title">满29减10</span>
-                    <span class="coupon-link">
-                        <span class="coupon-price">
-                            <span class="current">
-                                <span>111</span>
-                            </span>    
-                            <span class="origin">2000</span>
-                        </span>
-                        <a href="#" class="coupon-btn-link">马上抢</a>
-                    </span>
-                    <span class="coupon-process">
-                        <span class="progress-bar">
-                            <span style="width: 60%;"></span>
-                        </span>
-                        <span class="progress-text">
-                            <span class="progress-left">剩余：110000张</span>
-                            <span class="progress-attributed">已领取：100张</span>
-                        </span>
-                    </span>
-                </div>
-            </div>  
-            <div class="coupon-box">
-                <div class="coupon-image"><img src="http://img.alicdn.com/imgextra/i3/2912566525/TB2xRulXQTB11BjSspbXXbhcVXa_!!2912566525.jpg_430x430.jpg"></div>
-                <div class="coupon-detail">
-                    <span class="coupon-title">【天生一对】太平有象8支情侣牙刷成人软毛</span>
-                    <span class="coupon-sub-title">满29减10</span>
-                    <span class="coupon-link">
-                        <span class="coupon-price">
-                            <span class="current">
-                                <span>111</span>
-                            </span>    
-                            <span class="origin">2000</span>
-                        </span>
-                        <a href="#" class="coupon-btn-link">马上抢</a>
-                    </span>
-                    <span class="coupon-process">
-                        <span class="progress-bar">
-                            <span style="width: 60%;"></span>
-                        </span>
-                        <span class="progress-text">
-                            <span class="progress-left">剩余：110000张</span>
-                            <span class="progress-attributed">已领取：100张</span>
-                        </span>
-                    </span>
-                </div>
-            </div>  
-            <div class="coupon-box">
-                <div class="coupon-image"><img src="http://img.alicdn.com/imgextra/i3/2912566525/TB2xRulXQTB11BjSspbXXbhcVXa_!!2912566525.jpg_430x430.jpg"></div>
-                <div class="coupon-detail">
-                    <span class="coupon-title">【天生一对】太平有象8支情侣牙刷成人软毛</span>
-                    <span class="coupon-sub-title">满29减10</span>
-                    <span class="coupon-link">
-                        <span class="coupon-price">
-                            <span class="current">
-                                <span>111</span>
-                            </span>    
-                            <span class="origin">2000</span>
-                        </span>
-                        <a href="#" class="coupon-btn-link">马上抢</a>
-                    </span>
-                    <span class="coupon-process">
-                        <span class="progress-bar">
-                            <span style="width: 60%;"></span>
-                        </span>
-                        <span class="progress-text">
-                            <span class="progress-left">剩余：110000张</span>
-                            <span class="progress-attributed">已领取：100张</span>
-                        </span>
-                    </span>
-                </div>
-            </div>  
-            <div class="coupon-box">
-                <div class="coupon-image"><img src="http://img.alicdn.com/imgextra/i3/2912566525/TB2xRulXQTB11BjSspbXXbhcVXa_!!2912566525.jpg_430x430.jpg"></div>
-                <div class="coupon-detail">
-                    <span class="coupon-title">【天生一对】太平有象8支情侣牙刷成人软毛</span>
-                    <span class="coupon-sub-title">满29减10</span>
-                    <span class="coupon-link">
-                        <span class="coupon-price">
-                            <span class="current">
-                                <span>111</span>
-                            </span>    
-                            <span class="origin">2000</span>
-                        </span>
-                        <a href="#" class="coupon-btn-link">马上抢</a>
-                    </span>
-                    <span class="coupon-process">
-                        <span class="progress-bar">
-                            <span style="width: 60%;"></span>
-                        </span>
-                        <span class="progress-text">
-                            <span class="progress-left">剩余：110000张</span>
-                            <span class="progress-attributed">已领取：100张</span>
-                        </span>
-                    </span>
-                </div>
-            </div> 
+            </div>
         </div>
     </div>
     

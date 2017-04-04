@@ -1,0 +1,186 @@
+.product-filter-wrapper {
+    width: 100%;
+    background: #f5f5f5;
+}
+
+.product-filter-content {
+    margin: auto;
+    padding:0 3px;
+}
+.product-filter-box {
+    border:1px solid #ddd;
+}
+
+.filter-tag-box {
+    border: 1px dashed #d6d6d6;
+    padding: 0 10px;
+}
+
+/**
+面包屑导航
+*/
+.product-filter-crumb {
+    width: 100%;
+    padding:3px;
+    color:gray;
+    border-bottom: 1px solid #ddd;
+}
+
+.product-filter-crumb>span,
+.product-filter-crumb>a {
+    line-height: 25px;
+    font-size:13px;
+    text-decoration: none;
+}
+
+.product-filter-crumb>a:hover {
+    color: red;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.product-filter-crumb .filter-query {
+    line-height: 20px;
+    font-size: 12px;
+    text-indent: 10px;
+}
+
+.product-filter-crumb .filter-query-btn {
+    background: #f5f5f5;
+    color:gray;
+    line-height:20px;
+    padding: 0 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.product-filter-crumb .filter-query-btn:hover {
+    color: #c40000;
+    transform: scale(.96);
+}
+
+.product-filter-brand,
+.product-category {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px dashed #cdcdcd;
+    height: 80px;
+}
+
+.product-category {
+    border-bottom: none;
+}
+
+.product-filter-brand-key,
+.product-filter-cate-key {
+    width: 60px;
+    background: #d5d5d5;
+    height: 100%;
+    line-height: 80px;
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    color:gray;
+    text-align: center;
+}
+
+.product-filter-brand-values,
+.product-filter-cate-values {
+    float: left;
+    height: 100%;
+}
+
+.product-filter-brand-values ul,
+.product-filter-cate-values ul {
+    display: block;
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+    padding: 10px;
+}
+
+.product-filter-cate-values ul li ,
+.product-filter-brand-values ul li {
+    border: 1px dashed #cdcdcd;
+    display: inline-block;
+    line-height: 18px;
+    font-size: 12px;
+    color: gray; 
+    margin: 3px 5px;
+    cursor: pointer;
+    position: relative;
+    padding: 0 10px;
+    transition: all .3s ease;
+}
+
+.product-filter-cate-values ul li:hover,
+.product-filter-brand-values ul li:hover {
+    transform: scale(1.1);
+    border: 1px solid #c40000;
+}
+
+.product-filter-cate-values ul li span.delete,
+.product-filter-brand-values ul li span.delete {
+    display: inline-block;
+    background: #c40000;
+    color:fff;
+    border-left: 1px solid #fff;
+    padding: 0 3px;
+}
+
+.product-filter-brand-values ul li span.delete:hover,
+.product-filter-cate-values ul li span.delete:hover {
+    transform: scale(1.1);
+}
+
+.product-filter-brand-values ul li.active,
+.product-filter-cate-values ul li.active {
+    color: #fff;
+    background: #c40000;
+    border: 1px solid #fff;
+    padding-right: 0;
+}
+
+
+
+
+@media screen and (max-width: 1023px) {
+   .product-filter-content{
+       width: 816px;
+   }  
+
+   .product-filter-brand-values {
+       width: 740px;
+   }
+}
+
+@media screen and (min-width: 1024px) and (max-width:1279px) { 
+   .product-filter-content{
+       width: 1016px;
+   }    
+
+   .product-filter-brand-values {
+       width: 940px;
+   }        
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+   .product-filter-content {
+       width: 1216px;
+   } 
+
+   .product-filter-brand-values {
+       width: 1140px;
+   }   
+}
+
+@media screen and (min-width:1920px) {
+   .product-filter-content {
+       width: 1456px;
+   }
+
+   .product-filter-brand-values {
+       width: 1380px;
+   }   
+}

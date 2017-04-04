@@ -1,6 +1,6 @@
 <div class="nav-bar-wrapper">
     <ul class="nav-bar-list">
-        <li data-ng-repeat="a in anchors"><a ng-href="a.url">{{ a.title }}</a></li>
+        <li data-ng-repeat="nav in navbars | orderBy: nav.sort "><a ng-href="{{ nav.url }}" ng-bind="nav.text" target="{{ nav.newTab ? '_blank' : '_top' }}"></a></li>
         <ng-transclude></ng-transclude>
     </ul>
 </div>

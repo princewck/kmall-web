@@ -3,15 +3,7 @@
     <div id="main-nav">
         <div class="main-nav-list-wrapper">
             <ul class="main-nav-list">
-                <li><a href="">天猫超市</a></li>
-                <li><a href="">天猫国际</a></li>
-                <li><a href="">天猫会员</a></li>
-                <li><a href="">品牌街</a></li>
-                <li><a href="">电器城</a></li>
-                <li><a href="">喵鲜生</a></li>
-                <li><a href="">医药馆</a></li>
-                <li><a href="">营业厅</a></li>
-                <li><a href="">魅力惠</a></li>
+                <li ng-repeat="nav in navbars | orderBy : nav.sort"><a ng-href="{{ nav.url }}" ng-bind="nav.text" target="{{ nav.newTab ? '_blank' : '_top' }}"></a></li>
             </ul> 
         </div>
         <div id="banner-slider">
@@ -28,22 +20,7 @@
                 </div>
                 <div class="cate-content">
                     <ul>
-                        <li><i>o</i> 女装/内衣</li>
-                        <li><i>o</i> 男装/运动户外</li>
-                        <li><i>o</i> 女鞋/男鞋/箱包</li>
-                        <li><i>o</i> 化妆品/个人护理</li>
-                        <li><i>o</i> 腕表/珠宝饰品/眼镜</li>
-                        <li><i>o</i> 手机/数码/电脑办公</li>
-                        <li><i>o</i> 母婴玩具</li>
-                        <li><i>o</i> 零食/进口食品/茶酒</li>
-                        <li><i>o</i> 生鲜水果</li>
-                        <li><i>o</i> 大家电/生活电器</li>
-                        <li><i>o</i> 家居建材</li>
-                        <li><i>o</i> 汽车/配件/用品</li>
-                        <li><i>o</i> 家纺/家饰/鲜花</li>
-                        <li><i>o</i> 医药保健</li>
-                        <li><i>o</i> 厨具/收纳/宠物</li>
-                        <li><i>o</i> 图书音像</li>
+                        <li ng-repeat="category in categories"><i>o</i> <a ng-click="goProductList(category)" style="cursor: pointer">{{ category.name }}</a></li>
                     </ul>
                 </div>
             </div>

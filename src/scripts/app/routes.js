@@ -22,6 +22,31 @@ define(['app'], function(app) {
                 ])
             }
         })
+        .state('productsSearcher', {
+            url: '/products/:groupId/:categories/:brands/:query',
+            templateUrl: 'views/product_list/products.html',
+            controller: 'productsController',
+            resolve: {
+                deps: $requireProvider.requireJS([
+                    'nav-with-logo',
+                    'views/product_list/products', 
+                    'css!views/product_list/products.css',
+                ])
+            }
+        }) 
+        .state('couponsSearcher', {
+            url: '/coupons/:groupId/:categories/:query',
+            templateUrl: 'views/coupons/coupons.html',
+            controller: 'couponController',
+            resolve: {
+                deps: $requireProvider.requireJS([
+                    'nav-with-logo',
+                    'views/coupons/coupons', 
+                    'css!views/coupons/coupons.css'
+                ])
+            }
+        }) 
+
         .state('coupons', {
             url: '/coupons',
             templateUrl: 'views/coupons/coupons.html',

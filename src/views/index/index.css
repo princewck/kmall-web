@@ -116,6 +116,11 @@
     color:#555;
 }
 
+.cate-content a:hover {
+    color: #c40000;
+    text-decoration: underline;
+}
+
 #banner-slider .user-login-block {
     top:0;
     height: 100%;

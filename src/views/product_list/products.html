@@ -1,6 +1,12 @@
 <div search-bar placeholder="2017新年年货大全"></div>
 <div nav-with-logo="navBarList"></div>
 <div class="products-box">
+    <div product-list-filter 
+        category-group="{{ groupId }}" 
+        brands="{{ brands.join(',') }}" 
+        categories="{{ categories.join(',') }}" 
+        query = "{{ query }}"
+        on-select="filter(data)"></div>
     <div product-waterfall items="products">
     </div>
 </div>

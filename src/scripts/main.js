@@ -27,7 +27,11 @@ require.config({
         'product-waterfall': './directives/pages/product_waterfall/product_waterfall',
         'navbar': './directives/common_pages/navbar',
         'guess-like': './directives/pages/guess_like/guess_like',
-        'nav-with-logo': './directives/pages/nav_with_logo/nav_with_logo'
+        'nav-with-logo': './directives/pages/nav_with_logo/nav_with_logo',
+
+        'configService': './service/configService',
+        'productListFilter': './directives/pages/product_filter/product_filter',
+        'couponListFilter': './directives/pages/coupon_filter/coupon_filter'
     },
     map: {
         '*': {

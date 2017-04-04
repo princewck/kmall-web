@@ -57,6 +57,16 @@
     padding: 0 10px;
 }
 
+.guess-no-item-holder {
+    width: 100%;
+    text-align: center;
+    height:50px;
+    line-height: 50px;
+    color:orange;
+    font-size: 14px;
+    font-weight: bold;
+}
+
 
 @media screen and (max-width: 1023px) {
    .guess-wrapper .guess-content {

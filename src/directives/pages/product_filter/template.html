@@ -1,0 +1,34 @@
+<div class="product-filter-wrapper">
+    <div class="product-filter-content">
+        <div class="product-filter-box">
+            <div class="product-filter-crumb">
+                <a class="filter-tag-box" ng-show="group"> {{ group.name }} </a>
+                <span ng-show="getCategoriesChecked()">&nbsp;> </span><a class="filter-tag-box" ng-show="getCategoriesChecked()">{{ getCategoriesChecked() }}</a>
+                <span ng-show="getBrandsChecked()"> > </span><a ng-show="getBrandsChecked()" class="filter-tag-box" >{{ getBrandsChecked() }}</a>
+                <span> > </span> <span><input class="filter-query" type="text" placeholder="搜索结果内过滤" ng-model="filterQuery" /><button ng-click="searchByQuery()" class="filter-query-btn" type="button">搜索</button></span>
+            </div>
+            <div class="product-filter-brand" ng-show="brands.length">
+                <div class="product-filter-brand-key">品牌</div>
+                <div class="product-filter-brand-values">
+                    <ul>
+                        <li ng-repeat="brand in brands track by $index" ng-class="{active: brand.checked}" ng-click="handleBrand(1* brand.checked, $index)"> 
+                            {{ brand.name }} 
+                            <span class="delete" ng-show="brand.checked" ng-click="deleteBrand($index, $event)">&times;</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="product-category" ng-show="categories.length">
+                <div class="product-filter-cate-key" >分类</div>
+                <div class="product-filter-cate-values">
+                    <ul>
+                        <li ng-repeat="c in categories track by $index" ng-class="{active: c.checked}" ng-click="handleCategory(1* brand.checked, $index)"> 
+                            {{ c.name }} 
+                            <span class="delete" ng-show="c.checked" ng-click="deleteCategory($index, $event)">&times;</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>

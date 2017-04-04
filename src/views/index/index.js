@@ -1,9 +1,31 @@
-define(['app'], function (app) {
-    app.controller('indexController', ['$scope', '$rootScope', function ($scope, $rootScope) {
+define(['app', 'configService'], function (app) {
+    app.controller('indexController', ['$scope', '$rootScope', 'configService', '$state', function ($scope, $rootScope, configService, $state) {
         var vm = this;
         var layout = {
         
         };
+
+        configService.getNavbars().then(function(navs) {
+            $scope.navbars = navs;
+        });
+
+        configService.getIndexCategoriesOnBanner().then(function(categories) {
+            $scope.categories = categories;
+        });
+
+        $scope.goProductList = function(category) {
+            var groupId = category.id;
+            var categories = [];
+            var brands = [];
+            var query = '';
+            return $state.go('productsSearcher', {
+                groupId: groupId,
+                categories: categories,
+                brands: brands,
+                query: query
+            });
+        }
+
 
         /* banner slider test*/
         $scope.ksliderImages = [
