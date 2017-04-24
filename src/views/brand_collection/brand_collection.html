@@ -1,15 +1,15 @@
 <div search-bar placeholder="2017新年年货大全"></div>
 <div nav-with-logo="navBarList"></div>
 
-<div product-waterfall items="items">
+<div product-waterfall items="products">
     <div class="brand-info">
-        <img src="http://gju3.alicdn.com/tps/i2/1153905000438310993/TB2YDSqc3xlpuFjy0FoXXa.lXXa_!!0-juitemmedia.jpg" />
+        <img ng-src="{{ brand.banner }}" />
         <div class="brand-desc">
             <span class="brand-logo">
-                <img src="http://gju1.alicdn.com/tps/i2/1636305000555101208/TB2KiKzdOBnpuFjSZFzXXaSrpXa_!!2-juitemmedia.png_100x100.jpg" alt="">
+                <img ng-src="{{ brand.logo }}" alt="">
             </span>
             <span class="brand-detail"> 
-                <p>摩凡陀（Movado），是瑞士著名钟表品牌，全球顶级制表厂之一，以其标志性的Museum博物馆珍藏型表盘和极富现代感的设计而闻名于世。</p>
+                <p>{{ brand.description }}</p>
             </span>
         </div>
     </div>

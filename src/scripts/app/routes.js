@@ -60,7 +60,7 @@ define(['app'], function(app) {
             }
         })
         .state('brandCollection', {
-            url: '/brand/collection',
+            url: '/brand/collection/:brandId',
             templateUrl: 'views/brand_collection/brand_collection.html',
             controller: 'brandCollectionController',
             resolve: {
