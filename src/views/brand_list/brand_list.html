@@ -14,7 +14,7 @@
                     <div class="brand-banner-box-main">
                         <img ng-src="{{ banner.smallBanner }}" />
                         <div>
-                            <span class="desc"> {{ banner.description }} </span>
+                            <span class="desc"> {{ banner.description | limitTo: 20 }}... </span>
                             <span class="time-left">{{ banner.time }}</span>
                         </div>
                     </div>
@@ -23,11 +23,11 @@
                             <img ng-src="{{ banner.logo }}">
                         </div>
                         <div class="brand-banner-slogon">
-                            {{ banner.slogon }}
+                            {{ banner.description | limitTo: 30 }}
                         </div>
-                        <div class="brand-banner-number">
+                        <!--<div class="brand-banner-number">
                             总共 {{ banner.total_number }} 件
-                        </div>
+                        </div>-->
                     </div>                    
                 </a>
             </div>

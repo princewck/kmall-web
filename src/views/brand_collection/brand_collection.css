@@ -19,7 +19,7 @@
     height:90%;
     padding: 15px;
     font-size:.8em;
-    background: rgba(255,255,255,.9);
+    background: rgba(255,255,255,.6);
     display: flex;
 }
 
@@ -35,6 +35,7 @@
 .brand-info .brand-desc .brand-logo img {
     display: inline-block;
     width: 100px;
+    max-width: 100%;
 }
 
 .brand-info .brand-detail {

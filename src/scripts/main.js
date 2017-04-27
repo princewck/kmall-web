@@ -31,7 +31,8 @@ require.config({
 
         'configService': './service/configService',
         'productListFilter': './directives/pages/product_filter/product_filter',
-        'couponListFilter': './directives/pages/coupon_filter/coupon_filter'
+        'couponListFilter': './directives/pages/coupon_filter/coupon_filter',
+        'overlayMaker': './common/overlayMaker/overlayMaker'
     },
     map: {
         '*': {
@@ -76,9 +77,10 @@ require.onError = function (err) {
     console.log("require error:", err, arguments);
 }
 
-var commonPages = ['site-nav', 'search-bar', 'site-footer', 'kslider', 'block-group', 'product-waterfall', 'guess-like'];
+var commonPages = ['site-nav', 'search-bar', 'site-footer', 'kslider', 'block-group', 'product-waterfall', 'guess-like', 'overlayMaker'];
 requirejs(['app'], function () {
     requirejs(['routes', 'intercepter'].concat(commonPages), function () {
         angular.bootstrap(document, ['kapp']);
+        requirejs(['css!./styles/icofont/css/icofont.css']);
     });
 });

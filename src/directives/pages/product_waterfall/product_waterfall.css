@@ -38,10 +38,14 @@
 .guess-body .item-desc {
     color:#575757;
     font-size:13px;
-    line-height: 14px;
+    height: 32px;
+    line-height: 16px;
     text-align: left;
     padding: 0 10px;
     display: inline-block;
+    display: block;
+    overflow: hidden;
+    margin-top: 5px;    
 }
 
 .guess-body .guess-item-wrapper .guess-item:hover {
@@ -67,6 +71,26 @@
     font-weight: bold;
 }
 
+.kmall-pagination-wrapper,
+.kmall-pagination-wrapper>ul {
+    width: 100%;
+    display: block;
+    float: left;
+}
+
+.kmall-pagination-wrapper>ul {
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0;
+}
+
+.kmall-pagination-wrapper>ul>li {
+    list-style: none;
+    padding: 0;
+    margin: 0 10px;
+    text-indent: 10px;
+    display: inline-block;
+}
 
 @media screen and (max-width: 1023px) {
    .guess-wrapper .guess-content {

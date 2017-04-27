@@ -1,0 +1,14 @@
+<!-- 在透明框架层之上，遮罩层的内容包括两层：1..overlay-content内容(带#fff背景) 2.遮罩层的loading层 
+ layer2: [------------- loading  layer -------------]
+ layer1: [------------- content  layer -------------]
+ layer0: [----------transparent wrapper-------------] (outside this template)
+-->
+<div class="overlay-content">
+    <!-- 自定义模板在这里 -->
+    <!-- loading动画 -->
+    <div class="overlay-loading" ng-show="overlayContentLoading">
+        <span class="loading-text">
+            <i class="icofont icofont-spinner-alt-6 spinner"></i> 玩命加载中，<i class="icofont icofont-connection"></i>请稍后...
+        </span>
+    </div>    
+</div>

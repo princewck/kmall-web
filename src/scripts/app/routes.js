@@ -23,7 +23,7 @@ define(['app'], function(app) {
             }
         })
         .state('productsSearcher', {
-            url: '/products/:groupId/:categories/:brands/:query',
+            url: '/products/g/:groupId/c/:categories/b/:brands/kw/:query/p/:page',
             templateUrl: 'views/product_list/products.html',
             controller: 'productsController',
             resolve: {

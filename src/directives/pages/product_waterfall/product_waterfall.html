@@ -3,18 +3,23 @@
         <div data-ng-transclude></div>      
         <div class="guess-body">
             <div class="guess-body-adjuster">
-                <div class="guess-no-item-holder" ng-hide="items.length" >ops! 好像还没有你找的商品，｀猜你喜欢｀里可能有你要的商品哦～</div>
-                <div ng-show="items.length" class="guess-item-wrapper" ng-repeat="item in items">
+                <div class="guess-no-item-holder" ng-hide="items.data.length" >oops! 好像还没有你找的商品-_-~</div>
+                <div ng-show="items.data.length" class="guess-item-wrapper" ng-repeat="item in items.data">
                     <a data-ng-href="{{ item.share_url }}" class="guess-item" target="_blank">
                         <span class="item-pic">
                             <img ng-src="{{ item.product_image }}">
                         </span>
                         <span class="item-info">
-                            <span class="item-desc"> {{ item.product_name }} </span>
+                            <span class="item-desc" alt="{{ item.product_name }}" title="{{ item.product_name }}"> {{ item.product_name }} </span>
                             <span class="item-detail">{{ item.price | number: 1 | currency: '￥' }} </span>
                         </span>
                     </a>              
-                </div>                
+                </div>
+                <div class="kmall-pagination-wrapper">
+                    <ul>
+                        <li ng-repeat="page in getPages()"><a ng-bind="page" href="javascript:;" ng-click="goPage(page)"></a></li>
+                    </ul>
+                </div>              
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 define(['app', 'productListFilter'], function(app) {
-    app.controller('productsController', ['$scope', '$stateParams', '$state', '$http', function($scope, $stateParams, $state, $http) {
+    app.controller('productsController', ['$scope', '$stateParams', '$state', '$http', 'overlayMaker', '$timeout', function($scope, $stateParams, $state, $http, overlayMaker, $timeout) {
         $scope.groupId = $stateParams.groupId;
         if(!$scope.groupId) {
             return $state.go('index');
@@ -22,7 +22,6 @@ define(['app', 'productListFilter'], function(app) {
                 query: query
             });
         }
-
         function initFilter() {
             var params = {
                 groupId: $scope.groupId,
@@ -30,9 +29,11 @@ define(['app', 'productListFilter'], function(app) {
                 brandIds: $scope.brands,
                 categoryIds: $scope.categories
             }
-            $http.post('../api/web/products/query', params, {headers: {'Content-Type': 'application/json'}}).then(function(res) {
+            var loading = overlayMaker.loading(document.querySelector('.products-box'));
+            $http.post('../api/web/products/query/p/'+ ($stateParams.page||1), params, {headers: {'Content-Type': 'application/json'}}).then(function(res) {
                 if (res.data.code === 0) {
-                    $scope.products = res.data.data
+                    loading.hide();
+                    $timeout(function(){$scope.products = res.data.data;},0);
                 } else {
                     console.log(res);
                     $state.go('index');
