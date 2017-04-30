@@ -1,0 +1,95 @@
+<div class="k-pagination-wrapper">
+    <style>
+        .k-pagination-wrapper {
+            width: 100%;
+            height: auto;
+            margin-top: 10px;
+            overflow-y: auto;
+            float: left;
+        }
+        
+        .k-pagination-list {
+            width: 100%;
+            height: 45px;
+            display: block;
+            box-sizing: border-box;
+            padding: 0;
+        }
+        
+        .k-pagination-list>.k-pagination-list-item {
+            display: inline-block;
+            margin-right: 3px;
+            min-width: 38px;
+            text-align: center;
+            height: 35px;
+            line-height: 35px;
+            font-size: 14px;
+            background: #fff;
+            border: 1px solid #f5f5f5;
+            box-shadow: 1px 1px 1px #f8f8f8;
+        }
+        
+        .k-pagination-list>.k-pagination-list-item.active a {
+            background: #f5f5f5;
+            pointer-events: none;
+            color: #a5a5a5;
+        }
+        
+        .k-pagination-list>.k-pagination-list-item>a {
+            box-sizing: border-box;
+            color: #4476f5;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 0 10px;
+        }
+        
+        .k-pagination-list>.k-pagination-list-item>a:hover {
+            color: #c40000;
+        }
+
+        .k-pagination-list-item-info {
+            display: inline;
+            padding: 0;
+            list-style: none;
+        }
+
+        .k-pagination-list-item-info .fast-enter-page {
+            width: 40px;
+            height: 23px;
+            font-size: 12px;
+            text-align: center;
+            margin: 0 5px;
+        }
+
+        .fast-enter-page-btn {
+            background: #fff;
+            color:#000;
+            font-size: 12px;
+            padding:3px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .fast-enter-page-btn:hover {
+            color: #c40000;
+        }
+    </style>
+    <ul class="k-pagination-list">
+        <li class="k-pagination-list-item" ng-show="pagination.currentPage > 1"><a ng-click="lastPage()">上一页<<</a></li>
+        <li class="k-pagination-list-item" ng-click="goToPage(p)" ng-class="{active: pagination.currentPage == p}" ng-repeat="p in  getPageList() track by $index">
+            <a>{{ p }}</a>
+        </li>
+        <li class="k-pagination-list-item" ng-click="goToPage(p)" ng-class="{active: pagination.currentPage == p}" ng-repeat="p in  getPageListLast() track by $index">
+            <a>{{ p }}</a>
+        </li>
+        <li class="k-pagination-list-item" ng-show="pagination.currentPage < pagination.pages"><a ng-click="nextPage()">下一页>></a></li>
+        <li class="k-pagination-list-item-info">共 {{ pagination.pages }} 页</li>
+        <li class="k-pagination-list-item-info">跳到第<input class="fast-enter-page" ng-keyup="fastGoByEnter($event, _fastGoToPage)" ng-model="_fastGoToPage" type="number" />页</li>
+        <li class="k-pagination-list-item-info">
+            <button class="fast-enter-page-btn" ng-click="goToPage(_fastGoToPage)">确定</button>
+        </li>
+    </ul>
+</div>

@@ -8,6 +8,7 @@ define(['app', 'productListFilter'], function(app) {
         $scope.brands = $stateParams.brands ? $stateParams.brands.split('&'): [];
         $scope.query = $stateParams.query || '';
         $scope.products = [];
+        $scope.stateParams = $stateParams;
         initFilter();
 
         $scope.filter = function(data) {

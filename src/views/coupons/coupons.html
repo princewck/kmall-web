@@ -8,9 +8,9 @@
 
 <div class="coupon-content-wrapper">
     <div class="coupon-content">
-        <div class="coupon-content-adjuster">
-            <div class="coupon-box" ng-repeat = "p in products">
-                <div class="coupon-image"><img ng-src="{{ p.product_image }}"></div>
+        <div class="coupon-content-adjuster" lazy-image-list="products.data">
+            <div class="coupon-box" ng-repeat = "p in products.data">
+                <div class="coupon-image"><img xsrc="{{ p.product_image }}" class="lazy-image-instance"></div>
                 <div class="coupon-detail">
                     <span class="coupon-title" ng-bind="p.product_name"></span>
                     <span class="coupon-sub-title" ng-bind="p.coupon_text" ></span>
@@ -37,5 +37,5 @@
         </div>
     </div>
     
-    <div guess-like items="guessItems"></div>
+    <!--<div guess-like items="guessItems"></div>-->
 </div>

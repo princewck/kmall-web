@@ -5,10 +5,12 @@ define(['app', 'css!directives/pages/product_waterfall/product_waterfall.css'], 
             templateUrl: 'directives/pages/product_waterfall/product_waterfall.html',
             scope: {
                 items: '=productWaterfall',
+                state: '@',
+                stateParams: '='
             },
             link: function (scope, elements, attrs) {
                 scope.currentPage = scope.items.currentPage || 1;
-                var router = attrs.router;
+                var router = attrs.state;
 
                 scope.getPages = function () {
                     var pages = [];

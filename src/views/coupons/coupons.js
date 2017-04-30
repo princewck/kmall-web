@@ -1,6 +1,8 @@
 define(['app', 'couponListFilter'], function(app) {
     app.controller('couponController',  ['$scope', '$state', '$stateParams', '$http', function($scope, $state, $stateParams, $http) {
 
+        var pageId = $stateParams.pageId || 1;
+
         $scope.groupId = $stateParams.groupId;
         $scope.categories = $stateParams.categories ? $stateParams.categories.split('&')  : [];
         $scope.query = $stateParams.query || '';
@@ -24,7 +26,7 @@ define(['app', 'couponListFilter'], function(app) {
                 categoryIds: $scope.categories,
                 hasCoupon: true
             }
-            $http.post('../api/web/products/query', params, {headers: {'Content-Type': 'application/json'}}).then(function(res) {
+            $http.post('../api/web/products/query/p/' + pageId, params, {headers: {'Content-Type': 'application/json'}}).then(function(res) {
                 if (res.data.code === 0) {
                     $scope.products = res.data.data
                 } else {

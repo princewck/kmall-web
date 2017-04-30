@@ -32,7 +32,9 @@ require.config({
         'configService': './service/configService',
         'productListFilter': './directives/pages/product_filter/product_filter',
         'couponListFilter': './directives/pages/coupon_filter/coupon_filter',
-        'overlayMaker': './common/overlayMaker/overlayMaker'
+        'overlayMaker': './common/overlayMaker/overlayMaker',
+        'lazyLoadImage': './directives/common_pages/lazy-load-image',
+        'kPagination': './directives/common_pages/pagination'
     },
     map: {
         '*': {
@@ -77,7 +79,7 @@ require.onError = function (err) {
     console.log("require error:", err, arguments);
 }
 
-var commonPages = ['site-nav', 'search-bar', 'site-footer', 'kslider', 'block-group', 'product-waterfall', 'guess-like', 'overlayMaker'];
+var commonPages = ['site-nav', 'search-bar', 'site-footer', 'kslider', 'block-group', 'product-waterfall', 'guess-like', 'overlayMaker', 'lazyLoadImage', 'kPagination'];
 requirejs(['app'], function () {
     requirejs(['routes', 'intercepter'].concat(commonPages), function () {
         angular.bootstrap(document, ['kapp']);

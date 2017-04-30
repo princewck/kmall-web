@@ -7,7 +7,7 @@
         categories="{{ categories.join(',') }}" 
         query = "{{ query }}"
         on-select="filter(data)"></div>
-    <div product-waterfall="products" router="productsSearcher"></div>
+    <div product-waterfall="products" state="productsSearcher" state-params="stateParams"></div>
 </div>
 <div class="guess-box-wrapper">
     <!--<div guess-like items="guessItems"></div>-->
