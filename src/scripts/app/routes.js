@@ -35,7 +35,7 @@ define(['app'], function(app) {
             }
         }) 
         .state('couponsSearcher', {
-            url: '/coupons/:groupId/:categories/:query/p/:pageId',
+            url: '/coupons/:groupId/:categories/:query/p/:page',
             templateUrl: 'views/coupons/coupons.html',
             controller: 'couponController',
             resolve: {

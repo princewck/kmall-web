@@ -14,9 +14,9 @@ define(['app'], function (app) {
             templateUrl: 'directives/common_pages/pagination.html',
             link: function (scope) {
                 scope.goToPage = function (p) {
+                    var totalPages = Number(scope.pagination.pages) || 1;
                     var params = angular.copy(scope.stateParams);
-                    params.page = p;
-                    console.log(scope.state, params);
+                    params.page = p <= totalPages ? p : totalPages;
                     $state.go(scope.state, params);
                 };
 
@@ -37,9 +37,9 @@ define(['app'], function (app) {
                 }
 
                 scope.getPageList = function () {
+                    if (!scope.pagination || !scope.pagination.pages) return[];
                     var totalPages = Number(scope.pagination.pages) || 1;
                     var currentPage = Number(scope.pagination.currentPage) || 1;
-                    console.log(totalPages);
                     var pages = [currentPage];
                     for (var i = 1; i <= 6; i++) {
                         if (i % 2 != 0 && (currentPage - Math.ceil(i / 2) > 0)) {
@@ -49,11 +49,11 @@ define(['app'], function (app) {
                             pages.push(currentPage + i / 2);
                         }
                     }
-                    console.log(pages);
                     return pages;
                 }
 
                 scope.getPageListLast = function () {
+                    if (!scope.pagination || !scope.pagination.pages) return[];
                     var totalPages = Number(scope.pagination.pages) || 1;
                     var lastPages = [];
                     for (var i = 0; i < 3; i++) {
