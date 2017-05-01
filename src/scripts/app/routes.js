@@ -46,7 +46,18 @@ define(['app'], function(app) {
                 ])
             }
         }) 
-
+        .state('searchPage', {
+            url: '/products/search/:query/p/:page',
+            templateUrl: 'views/search/search.html',
+            controller: 'searchPageController',
+            resolve: {
+                deps: $requireProvider.requireJS([
+                    'views/search/search',
+                    'css!views/search/search.css',
+                    'nav-with-logo',
+                ])
+            }
+        })
         .state('coupons', {
             url: '/coupons',
             templateUrl: 'views/coupons/coupons.html',
@@ -60,7 +71,7 @@ define(['app'], function(app) {
             }
         })
         .state('brandCollection', {
-            url: '/brand/collection/:brandId',
+            url: '/brand/collection/:brandId/p/:page',
             templateUrl: 'views/brand_collection/brand_collection.html',
             controller: 'brandCollectionController',
             resolve: {

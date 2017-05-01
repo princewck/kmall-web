@@ -25,6 +25,7 @@ require.config({
         'kslider': './directives/common_pages/slider',
         'block-group': './directives/pages/block_group/block_group',
         'product-waterfall': './directives/pages/product_waterfall/product_waterfall',
+        'product-waterfall-no-pagination': './directives/pages/product_waterfall/product_waterfall_no_pagination',
         'navbar': './directives/common_pages/navbar',
         'guess-like': './directives/pages/guess_like/guess_like',
         'nav-with-logo': './directives/pages/nav_with_logo/nav_with_logo',
@@ -79,7 +80,7 @@ require.onError = function (err) {
     console.log("require error:", err, arguments);
 }
 
-var commonPages = ['site-nav', 'search-bar', 'site-footer', 'kslider', 'block-group', 'product-waterfall', 'guess-like', 'overlayMaker', 'lazyLoadImage', 'kPagination'];
+var commonPages = ['site-nav', 'search-bar', 'site-footer', 'kslider', 'block-group', 'product-waterfall', 'product-waterfall-no-pagination', 'guess-like', 'overlayMaker', 'lazyLoadImage', 'kPagination'];
 requirejs(['app'], function () {
     requirejs(['routes', 'intercepter'].concat(commonPages), function () {
         angular.bootstrap(document, ['kapp']);

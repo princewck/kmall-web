@@ -1,40 +1,37 @@
 define(['app'], function (app) {
     /**
-     * 分页组件
+     * 分页组件, 不切换state, 直接调接口翻页
      */
-    app.directive('kPagination', ['$state', function ($state) {
+    app.directive('kPaginationOnePage', ['$state', function ($state) {
         return {
             restrict: 'AE',
             replace: true,
             scope: {
                 pagination: '=kPagination',
-                state: '@',
-                stateParams: '='
+                goToPage: '&'
             },
             templateUrl: 'directives/common_pages/pagination.html',
             link: function (scope) {
-                scope.goToPage = function (p) {
-                    var totalPages = Number(scope.pagination.pages) || 1;
-                    var params = angular.copy(scope.stateParams);
-                    params.page = p <= totalPages ? p : totalPages;
-                    $state.go(scope.state, params).then(function() {
-                        document.getElementsByTagName('body')[0].scrollIntoView();
-                    });
-                };
+                // scope.goToPage = function (p) {
+                //     var totalPages = Number(scope.pagination.pages) || 1;
+                //     var params = angular.copy(scope.stateParams);
+                //     params.page = p <= totalPages ? p : totalPages;
+                //     $state.go(scope.state, params);
+                // };
 
                 scope.lastPage = function () {
                     var p = Number(scope.pagination.currentPage);
-                    scope.goToPage(p - 1);
+                    scope.goToPage({page: p - 1});
                 }
 
                 scope.nextPage = function () {
                     var p = Number(scope.pagination.currentPage);
-                    scope.goToPage(p + 1);
+                    scope.goToPage({page: p + 1});
                 }
 
                 scope.fastGoByEnter = function(event, page) {
                     if (event.keyCode == 13) {
-                        scope.goToPage(page);
+                        scope.goToPage({page: page});
                     }
                 }
 

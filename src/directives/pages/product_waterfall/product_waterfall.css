@@ -62,13 +62,32 @@
 }
 
 .guess-no-item-holder {
+    background: #f1f2f7;
     width: 100%;
     text-align: center;
-    height:50px;
-    line-height: 50px;
+    height:220px;
     color:orange;
     font-size: 14px;
     font-weight: bold;
+    position: relative;
+}
+
+.guess-no-item-holder > img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 200px;
+    margin-left: -100px;
+    margin-top: -100px;
+}
+
+.guess-no-item-holder > span {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -120px;
+    margin-top: 70px;
 }
 
 .kmall-pagination-wrapper,
