@@ -10,6 +10,7 @@ define(['app', 'css!directives/pages/block_group/block_group.css'], function(app
             templateUrl: 'directives/pages/block_group/block_group.html',
             scope: {
                 items: '=',
+                name: '='
             },
             link: function(scope) {
                 if (!scope.items) throw new Error('block group items is not exist!!!');

@@ -4,7 +4,7 @@
         <div class="main-nav-list-wrapper">
         </div>
         <div id="banner-slider">
-            <div kslider ng-cloak images="ksliderImages" interval="42000" width="1000px" height="auto"> </div>
+            <div kslider ng-cloak images="ksliderImages" interval="42000" width="1000px" height="500px"> </div>
             <div class="cate_block">
                 <div class="logo-block">
                     <img src="https://img.alicdn.com/imgextra/i4/2074305857/TB2fFxGbHtlpuFjSspoXXbcDpXa-2074305857.gif" alt="" />
@@ -43,6 +43,6 @@
         </div>
     </div>
     <div class="ads-rectangle"><img src="https://img.alicdn.com/simba/img/TB1_SrNPXXXXXX0XFXXSutbFXXX.jpg" alt="ads" /></div>
-    <div block-group items="blockGroupItems"></div>
+    <div block-group ng-repeat="group in blockGroups track by $index" name="group.name" items="group.list"></div>
     <div guess-like></div>
 </div>

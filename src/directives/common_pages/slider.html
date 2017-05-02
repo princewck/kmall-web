@@ -1,8 +1,8 @@
 <div class="kslider">
     <div class="kslider-container">
         <ul class="kslider-list" max-width="{{ width }}" height="{{ height }}">
-            <li ng-show="$index === sliderIndex" class="kslider-item" ng-repeat="i in images" style="background:{{i.bgc}}">
-                <a ng-href="{{ i.link }}" style="max-width:{{ width }}"><img ng-src="{{ i.img }}" alt="{{ i.title }}" title="{{ i.title }}" max-width="{{ width }}" height="{{ height }}" /></a>
+            <li ng-show="$index === sliderIndex" class="kslider-item" ng-repeat="i in images" style="background:{{i.bg}}">
+                <a ng-href="{{ i.link }}" style="max-width:{{ width }}"><img ng-src="{{ i.image }}" alt="{{ i.title }}" title="{{ i.title }}" max-width="{{ width }}" height="{{ height }}" /></a>
             </li>
             <li class="kslider-item-guide">
                 <ul>
