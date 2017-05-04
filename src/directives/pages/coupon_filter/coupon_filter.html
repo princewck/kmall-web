@@ -10,6 +10,7 @@
                 <div class="product-filter-brand-key">一级分类</div>
                 <div class="product-filter-brand-values">
                     <ul>
+                        <li ng-class="{active: showAll}" ng-show="showAll" style="padding-right:10px">所有一级分类</li>
                         <li ng-repeat="group in groups track by group.id" ng-class="{active: group.checked}" ng-click="handleGroup( group.checked, group)"> 
                             {{ group.name }} 
                             <span class="delete" ng-show="group.checked" ng-click="deleteGroup($index, $event)">&times;</span>
@@ -20,7 +21,10 @@
             <div class="product-category" ng-show="categories.length">
                 <div class="product-filter-cate-key" >二级分类</div>
                 <div class="product-filter-cate-values">
-                    <ul>
+                    <ul ng-show="showAll">
+                        <li class="active" style="padding-right:10px">全部二级分类</li>
+                    </ul>
+                    <ul ng-show="!showAll">
                         <li ng-repeat="c in categories track by c.id" ng-class="{active: c.checked}" ng-click="handleCategory(1* c.checked, $index)"> 
                             {{ c.name }} 
                             <span class="delete" ng-show="c.checked" ng-click="deleteCategory($index, $event)">&times;</span>

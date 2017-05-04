@@ -11,6 +11,7 @@ define(['app',
             },
             link: function (scope, elements, attrs) {
                 var groupId = attrs.groupId || 0;//选中的分组
+                scope.showAll = !Boolean(Number(groupId));
                 var categories = attrs.categories ? attrs.categories.split(',') : [];//选中的分类
                 var query = attrs.query;//搜索词
                 loadGroups();
@@ -56,11 +57,17 @@ define(['app',
                     if (!checked) {
                         scope.groups.forEach(function (g) {
                             if (g.id != group.id) {
-                                g['checked'] = false;
+                                g['_checked'] = false;
                             }
                         });
-                        group['checked'] = true;
-                        onSelect({ data: getData() });
+                        group['_checked'] = true;
+                        var groups = angular.copy(scope.groups).map(function(g) {
+                            if (g.hasOwnProperty('_checked')) {
+                                g.checked = g._checked;
+                            }
+                            return g;
+                        });
+                        onSelect({ data: getData(groups) });
                     }
                 }
 
@@ -71,9 +78,14 @@ define(['app',
                 }
 
                 scope.handleCategory = function (checked, index) {
+                    console.log(JSON.stringify(arguments));
                     if (!checked) {
-                        scope.categories[index]['checked'] = true;
-                        onSelect({ data: getData() });
+                        scope.categories[index]['_checked'] = true;
+                        var categories = angular.copy(scope.categories).map(function(category) {
+                            if (category.hasOwnProperty('_checked')) category.checked = category._checked;
+                            return category;
+                        });
+                        onSelect({ data: getData(null, categories) });
                     }
                 }
 
@@ -83,8 +95,10 @@ define(['app',
                     return event.stopPropagation(), false;
                 }
 
-                function getData() {
-                    var groupIds = scope.groups
+                function getData(groups, categories) {
+                    var _groups = groups || scope.groups;
+                    var _categories = categories || scope.categories;
+                    var groupIds = _groups
                         .filter(function (g) { return g.checked })
                         .map(function (g) {
                             return g.id;
@@ -92,7 +106,7 @@ define(['app',
                     var groupId = groupIds.length ? groupIds[0] : 0;
                     return {
                         groupId: groupId,
-                        categories: scope.categories.filter(function (c) {
+                        categories: _categories.filter(function (c) {
                             return c.checked;
                         }).map(function (c) {
                             return c.id;

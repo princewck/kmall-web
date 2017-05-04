@@ -1,7 +1,7 @@
 <div id="search-bar">
     <fieldset>
         <input type="text" class="search-bar-input" ng-model="_searchKeywords" ng-keyup="searchWithEnter($event, _searchKeywords)" placeholder="{{placeholder}}"/>
-        <button class="search-bar-submit" ng-click="search(_)">搜索</button>        
+        <button class="search-bar-submit" ng-click="search(_searchKeywords)">搜索</button>
     </fieldset>
     <ul class="hot-search">
         <li><a href="">羽绒服</a></li>
