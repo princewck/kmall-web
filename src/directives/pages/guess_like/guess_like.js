@@ -15,9 +15,16 @@ define(['app', 'css!directives/pages/guess_like/guess_like.css'], function(app) 
                     var loading = overlayMaker.loading(document.querySelector('#guess-like'));
                     $http.get('../api/web/products/promotions/'+ page).then(function(res) {
                         if (res.data.code === 0) {
+                            var result = [];
+                            var list = res.data.data.data;
+                            //随机取20个做为猜你喜欢结果
+                            for(var i =0 ; i < 20; i++) {
+                                var data = list.splice(Math.floor(Math.random()*list.length), 1)[0];
+                                result.push(data);
+                            }
+                            res.data.data.data = result;
                             loading.hide();
                             scope.result = res.data.data;
-                            console.log(scope.result);
                         }
                     });
                 }
