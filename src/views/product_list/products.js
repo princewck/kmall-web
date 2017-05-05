@@ -20,7 +20,8 @@ define(['app', 'productListFilter'], function (app) {
                 groupId: groupId,
                 categories: categories,
                 brands: brands,
-                query: query
+                query: query,
+                page: 1
             });
         }
         function initFilter() {

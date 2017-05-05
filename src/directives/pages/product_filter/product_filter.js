@@ -32,6 +32,7 @@ define(['app', 'css!./directives/pages/product_filter/product_filter.css'], func
                 var brands = attrs.brands ? attrs.brands.split(',') : [];
                 var categoryGroupId = attrs.categoryGroup;
                 var categories = attrs.categories ? attrs.categories.split(',') : [];
+                scope.showAllCategories = !categories.length;
 
                 scope.handleBrand = function(checked, index) {
                     // if not checked then check it and search 
@@ -51,8 +52,9 @@ define(['app', 'css!./directives/pages/product_filter/product_filter.css'], func
                 scope.handleCategory = function(checked, index) {
                     // if not checked then check it and search 
                     if (!checked) {
-                        scope.categories[index]['checked'] = true;
-                        scope.onSelect({data: getData()});
+                        var categories = angular.copy(scope.categories);
+                        categories[index]['checked'] = true;
+                        scope.onSelect({data: getData(categories)});
                     }
                 }
 
@@ -67,16 +69,17 @@ define(['app', 'css!./directives/pages/product_filter/product_filter.css'], func
                     scope.onSelect({data: getData()});
                 }
 
-                function getData() {
-                    scope.brands = scope.brands || [];
+                function getData(categories, brands) {
+                    var _brands = brands || scope.brands || [];
+                    var _categories = categories || scope.categories ||[];
                     var data =  {
                         categoryGroupId: categoryGroupId,
-                        categoriesChecked: scope.categories.filter(function(c) {
+                        categoriesChecked: _categories.filter(function(c) {
                             return c.checked;
                         }).map(function(c) {
                             return c.id;
                         }),
-                        brandsChecked: scope.brands.filter(function(b) {
+                        brandsChecked: _brands.filter(function(b) {
                             return b.checked;
                         }).map(function(b) {
                             return b.id;

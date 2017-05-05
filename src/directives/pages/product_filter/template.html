@@ -22,6 +22,7 @@
                 <div class="product-filter-cate-key" >分类</div>
                 <div class="product-filter-cate-values">
                     <ul>
+                        <li ng-show="showAllCategories" class="active" style="padding-right:10px;"> 所有分类 </li>
                         <li ng-repeat="c in categories track by $index" ng-class="{active: c.checked}" ng-click="handleCategory(1* brand.checked, $index)"> 
                             {{ c.name }} 
                             <span class="delete" ng-show="c.checked" ng-click="deleteCategory($index, $event)">&times;</span>
