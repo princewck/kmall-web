@@ -18,7 +18,7 @@ define(['app', 'css!directives/pages/guess_like/guess_like.css'], function(app) 
                             var result = [];
                             var list = res.data.data.data;
                             //随机取20个做为猜你喜欢结果
-                            for(var i =0 ; i < 20; i++) {
+                            for(var i =0 ; i < 20 && i<list.length; i++) {
                                 var data = list.splice(Math.floor(Math.random()*list.length), 1)[0];
                                 result.push(data);
                             }

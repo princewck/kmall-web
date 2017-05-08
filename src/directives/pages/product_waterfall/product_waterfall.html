@@ -8,13 +8,20 @@
                     <span>好像还没有你找的商品, 小二会马上补货哒~</span>
                     </div>
                 <div ng-show="items.data.length" class="guess-item-wrapper lazy-image-list-item" ng-repeat="item in items.data">
-                    <a data-ng-href="{{ item.share_url }}" class="guess-item" target="_blank">
+                    <a data-ng-href="{{ ::item.share_url }}" class="guess-item" target="_blank">
                         <span class="item-pic">
-                            <img class="lazy-image-instance item-pic-img" xsrc="{{ item.product_image }}" >
+                            <div class="inew"></div>
+                            <div class="saved-money" ng-show="item.coupon_price && item.coupon_price > 0">
+                                <div>内部优惠券</div>
+                                <div>省<span ng-bind="item.coupon_price"></span>元</div>
+                            </div> 
+                            <img class="lazy-image-instance item-pic-img" xsrc="{{ ::item.product_image }}" >
                         </span>
                         <span class="item-info">
                             <span class="item-desc" alt="{{ item.product_name }}" title="{{ item.product_name }}"> {{ item.product_name }} </span>
-                            <span class="item-detail">{{ item.price | number: 1 | currency: '￥' }} </span>
+                            <span class="item-detail" ng-class="{mute: item.coupon_price > 0}">{{ item.price | number: 1 | currency: '￥' }} </span>
+                            <span class="item-detail real"><span>{{ (item.price - item.coupon_price || item.price) | number: 1 | currency: '￥' }}</span></span>
+                            <em>({{ (item.price - item.coupon_price || item.price)/item.price*10 | number:1 }}折)</em>
                         </span>
                     </a>              
                 </div> 

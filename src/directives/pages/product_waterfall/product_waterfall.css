@@ -35,6 +35,61 @@
     display: block;
 }
 
+.guess-body .guess-item-wrapper .guess-item .item-info  >em {
+    font-size: 12px;
+    color: red;
+}
+
+.guess-body .guess-item-wrapper .guess-item .item-pic {
+    position: relative;
+}
+
+.guess-body .guess-item-wrapper .guess-item .item-pic > .inew {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 36px;
+    height: 50px;
+    background: url('../../../images/inew.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.guess-body .guess-item-wrapper .guess-item .item-pic > .saved-money {
+    position: absolute;
+    right: 0;
+    top:0;
+    width: 80px;
+    height: 55px;
+}
+
+.guess-body .guess-item-wrapper .guess-item .item-pic > .saved-money>div:first-of-type {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    border: none;
+    background: #c40000;
+    color:#fff;
+    font-size: 12px;
+    text-align: center;
+}
+
+.guess-body .guess-item-wrapper .guess-item .item-pic > .saved-money>div:last-of-type {
+    background: #ebff22;
+    color: #c40000;
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.guess-body .guess-item-wrapper .guess-item .item-pic > .saved-money>div:last-of-type >span {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
 .guess-body .item-desc {
     color:#575757;
     font-size:13px;
@@ -55,10 +110,20 @@
 .guess-body .guess-item-wrapper .item-detail {
     display: inline-block;
     color:red;
-    font-size:16px;
-    line-height: 30px;
+    font-size:20px;
+    line-height: 55px;
     text-align: left;
-    padding: 0 10px;
+    padding: 0 0 0 6px;
+}
+
+.guess-body .guess-item-wrapper .item-detail.mute {
+    text-decoration: line-through;
+    font-size: 16px;
+    color: gray;
+}
+
+.item-detail.real>span {
+    font-size: 24px;
 }
 
 .guess-no-item-holder {

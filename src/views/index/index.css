@@ -68,6 +68,7 @@
 }
 
 #banner-slider .cate_block {
+    animation-fill-mode: both;
     box-sizing: border-box;
     height:100%;
     position: absolute;
@@ -77,6 +78,17 @@
     color: #fff;
     font-size:14px;
     line-height:30px;
+    animation: easeIn 1.5s .5s ease;
+}
+
+
+@keyframes easeIn {
+    from {
+        opcity:0;
+    }
+    to {
+        opacity:1;
+    }
 }
 
 #banner-slider .cate_block  .logo-block {
