@@ -1,0 +1,37 @@
+<div search-bar placeholder="2017新年年货大全"></div>
+<div nav-with-logo="navBarList"></div>
+<div class="bg">
+    <div class="brand-showcase">
+        <a class="brand-logo-box"  target="_blank" ng-repeat="item in showcaseItems[brandLogoPage] track by $index">
+            <img ng-src="{{ item.logo }}" alt=""/>
+            <span>{{ item.name }}</span>
+        </a>
+    </div> 
+    <div class="brand-banners-wrapper">
+        <div class="brand-banners">
+            <div class="brand-banner-box-wrapper" ng-repeat="banner in brands track by $index">
+                <a target="_blank" ng-click="goToBrand(banner.id)" style="cursor: pointer" class="brand-banner-box">
+                    <div class="brand-banner-box-main">
+                        <img ng-src="{{ banner.smallBanner }}" />
+                        <div>
+                            <span class="desc"> {{ banner.description | limitTo: 20 }}... </span>
+                            <span class="time-left">{{ banner.time }}</span>
+                        </div>
+                    </div>
+                    <div class="brand-banner-box-footer">
+                        <div class="brand-banner-logo">
+                            <img ng-src="{{ banner.logo }}">
+                        </div>
+                        <div class="brand-banner-slogon">
+                            {{ banner.description | limitTo: 30 }}
+                        </div>
+                        <!--<div class="brand-banner-number">
+                            总共 {{ banner.total_number }} 件
+                        </div>-->
+                    </div>                    
+                </a>
+            </div>
+        </div>
+    </div>
+        
+</div>
