@@ -20,7 +20,7 @@
                         <span class="item-info">
                             <span class="item-desc" alt="{{ item.product_name }}" title="{{ item.product_name }}"> {{ item.product_name }} </span>
                             <span class="item-detail" ng-class="{mute: item.coupon_price > 0}">{{ item.price | number: 1 | currency: '￥' }} </span>
-                            <span class="item-detail real"><span>{{ (item.price - item.coupon_price || item.price) | number: 1 | currency: '￥' }}</span></span>
+                            <span class="item-detail real"><span>{{ ((item.price - item.coupon_price > 0 ? item.price - item.coupon_price : item.price) | number: 1 | currency: '￥' }}</span></span>
                             <em>({{ (item.price - item.coupon_price || item.price)/item.price*10 | number:1 }}折)</em>
                         </span>
                     </a>              
