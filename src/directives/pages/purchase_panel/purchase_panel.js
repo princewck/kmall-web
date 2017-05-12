@@ -24,11 +24,12 @@ define([
                 });
 
                 scope.$watch('item.coupon_link', function(newVal) {
-                    $http.post('../api/web/url/short', {url: newVal}).then(function(res) {
-                        if (res.data.code === 0) {
-                            qrcode.makeCode('http://quanerdai.com' + res.data.data);
-                        }
-                    });
+                    // $http.post('../api/web/url/short', {url: newVal}).then(function(res) {
+                    //     if (res.data.code === 0) {
+                    //         qrcode.makeCode('http://quanerdai.com' + res.data.data);
+                    //     }
+                    // });
+                    if(newVal) qrcode.makeCode(newVal);
                 });
             },
             scope: {

@@ -118,9 +118,46 @@
     color: orange;
 }
 
+.purchase-guide .purchase-guide-title p {
+    border-bottom: 1px solid #f5f5f5;
+    line-height: 25px;
+    font-size: 16px;
+}
+
+
+
 .purchase-guide-step {
     line-height: 25px;
-    color: gray;
-    background: yellow;
+    color: hotpink;
+    font-weight: bold;
     font-size: 15px;
+    width: 100%;
+    display: inline-block;
+    text-indent: 5px;
+    line-height: 25px;
+    height: 25px;
+    font-size: 12px;
+}
+
+.pull-right {
+    float: right;
+}
+
+#go-by-it {
+    width: 150px;
+    height: 45px;
+    border: none;
+    line-height: 45px;
+    border-radius: 5px;
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 1rem;
+    background: #c40000;
+    color: #fff;
+    margin: auto auto;
+}
+
+#go-by-it:hover {
+    opacity: .8;
 }
