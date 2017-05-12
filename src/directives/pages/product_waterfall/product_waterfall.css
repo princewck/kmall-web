@@ -55,6 +55,19 @@
     background-repeat: no-repeat;
 }
 
+.is-tmall {
+    position: absolute;
+    left: 3px;
+    bottom: 3px;
+    width: 26px;
+    height: 26px;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    background: url('../../../images/tmall.png');
+    background-size: contain;
+    background-repeat: no-repeat;    
+}
+
 .guess-body .guess-item-wrapper .guess-item .item-pic > .saved-money {
     position: absolute;
     right: 0;

@@ -1,0 +1,29 @@
+<div class="purchase-panel-wrapper">
+    <div class="purchase-panel-content">
+        <div class="purchase-panel-nav-list">
+            <ul>
+                <li ng-class="{active: purchasePanelIndex == 1}" ng-mouseover="purchasePanelIndex = 1"><a href="#"  >直接领</a></li>
+                <li ng-class="{active: purchasePanelIndex == 2}" ng-mouseover="purchasePanelIndex = 2"><a href="#"  >二维码领券</a></li>
+                <li ng-class="{active: purchasePanelIndex == 3}" ng-show="item.coupon_command" ng-mouseover="purchasePanelIndex = 3"><a href="#"  >淘口令领券</a></li>
+            </ul>
+        </div>
+        <div class="purchase-panel-body" ng-hide="item.coupon_price">
+            本商品暂无可用的内部券
+        </div>
+        <div class="purchase-panel-body" ng-hide="!item.coupon_price">
+            <div class="purchase-panel-box" ng-show="purchasePanelIndex == 1">
+                <p>点击下方“立即领券”按钮领券购买</p>
+                <iframe src="{{ trustAsUrl(item.coupon_short_url) }}"></iframe>
+            </div>
+            <div class="purchase-panel-box" ng-show="purchasePanelIndex == 2">
+                <p>使用淘宝app, 天猫app, 支付宝app 扫描下面二维码领券购买</p>
+                <div id="purchase-panel-qrcode">
+
+                </div>
+            </div>
+            <div class="purchase-panel-box" ng-show="purchasePanelIndex == 3 && item.coupon_command">
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -35,7 +35,8 @@ require.config({
         'couponListFilter': './directives/pages/coupon_filter/coupon_filter',
         'overlayMaker': './common/overlayMaker/overlayMaker',
         'lazyLoadImage': './directives/common_pages/lazy-load-image',
-        'kPagination': './directives/common_pages/pagination'
+        'kPagination': './directives/common_pages/pagination',
+        'purchasePanel': './directives/pages/purchase_panel/purchase_panel'
     },
     map: {
         '*': {

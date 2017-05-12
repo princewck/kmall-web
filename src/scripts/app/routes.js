@@ -22,6 +22,18 @@ define(['app'], function(app) {
                 ])
             }
         })
+        .state('productDetail', {
+            url: '/product/detail/:id',
+            templateUrl: 'views/product_detail/product_detail.html',
+            controller: 'productDetailController',
+            resolve: {
+                deps: $requireProvider.requireJS([
+                    'nav-with-logo',
+                    'views/product_detail/product_detail', 
+                    'css!views/product_detail/product_detail.css',
+                ])
+            }
+        })
         .state('productsSearcher', {
             url: '/products/g/:groupId/c/:categories/b/:brands/kw/:query/p/:page',
             templateUrl: 'views/product_list/products.html',

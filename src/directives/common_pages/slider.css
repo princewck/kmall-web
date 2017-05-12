@@ -20,9 +20,7 @@
     position: relative;
     display: block;
     width:100%;
-    height:0;
-    animation: zoomInY 1s ease;
-    animation-fill-mode: both;    
+    height:500px;   
     overflow: hidden;
 }
 
@@ -35,12 +33,12 @@
     overflow: hidden;
 }
 
-@keyframes zoomInY {
+@-webkit-keyframes easeIn {
     from {
-        height: 0px;
+        opcity:0;
     }
     to {
-        height: 500px;
+        opacity:1;
     }
 }
 
@@ -96,8 +94,19 @@
 }
 
 .kslider .kslider-container .kslider-list .kslider-item-guide>ul>li.active {
-    animation: changecolor .3s linear;
-    animation-fill-mode: both;
+    -webkit-animation: changecolor .3s linear;
+            animation: changecolor .3s linear;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+
+@-webkit-keyframes changecolor {
+    from {
+       background: #999; 
+    }
+    to {
+       background: #fff; 
+    }
 }
 
 @keyframes changecolor {

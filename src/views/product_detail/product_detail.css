@@ -1,0 +1,126 @@
+.product-detail-wrapper {
+    width: 100%;
+    background: #fff;
+    float: left;
+}
+
+.product-detail-content {
+    width: 100%;
+    padding: 10px 30px;
+    float: left;
+}
+
+.product-detail-content > .product-images {
+    width: 50%;
+    float: left;
+    border: 1px solid #f8f8f8;
+    background: #f5f5f5;
+    padding: 10px;
+}
+
+.product-image-main {
+    width: 100%;
+    height: auto;
+    float: right;
+    padding: 15px;
+    border: 1px solid #d5d5d5;
+}
+
+.product-image-main > img {
+    display: block;
+    width: 360px;
+    height: auto;
+    max-width: 100%;
+    margin: auto auto;
+}
+
+.product-details {
+    width: 100%;
+    float: left;
+    padding: 15px;
+}
+
+.product-details .price-panel {
+    padding-top:15px;
+    font-size: 16px;
+}
+
+.product-details .price-panel .coupon-desc {
+    height: 18px;
+    font-size: 15px;
+    text-indent: 75px;
+    line-height: 18px;
+    background: url(../../images/nbq.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: orangered;
+    text-decoration: underline;
+}
+.product-details .price-panel .price {
+    width: 100%;
+    padding: 18px 15px;
+    background: #f5f5f5;
+    border-radius: 5px;
+    margin-top:15px;
+    border: 1px solid #d5d5d5;
+}
+
+.product-details .price-panel .price > p {
+    line-height: 38px;
+}
+
+.product-details .price-panel .price  span.old {
+    font-size: 20px;
+    padding-left: 12px;
+    color: #000;
+}
+
+.product-details .price-panel .price > p {
+    border-bottom: 1px solid #e6e5e5;
+}
+
+.product-details .price-panel .price > p:last-of-type {
+    border: none
+}
+
+.old-price{
+    text-decoration: line-through;
+    color: orange;
+}
+
+.product-details .price-panel .price em {
+    width: 100px;
+    display: inline-block;
+    text-align: left;
+}
+
+.product-details .price-panel .price  span.now {
+    font-size: 45px;
+    line-height: 60px;
+    margin-left: 8px;
+    color: red;
+}
+
+.product-details .price-panel .price  span.now> span {
+    font-size: 20px;
+}
+
+.purchase-guide {
+    width: 50%;
+    float: left;
+    padding: 15px 10px;
+    border: 1px solid #ecebeb;
+}
+
+
+.purchase-guide .purchase-guide-title {
+    text-indent: 10px;
+    color: orange;
+}
+
+.purchase-guide-step {
+    line-height: 25px;
+    color: gray;
+    background: yellow;
+    font-size: 15px;
+}

@@ -1,0 +1,79 @@
+.purchase-panel-wrapper {
+    width: 100%;
+    float: left;
+    padding: 5px;
+}
+
+.purchase-panel-content {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ecebeb;
+    padding: 10px;
+}
+
+.purchase-panel-wrapper .purchase-panel-nav-list {
+    flex: initial;
+}
+
+.purchase-panel-wrapper .purchase-panel-nav-list ul {
+    display: block;
+    padding: none;
+    box-sizing: border-box;
+}
+
+.purchase-panel-wrapper .purchase-panel-nav-list ul li {
+    box-sizing: border-box;    
+    list-style: none;
+    padding: 0 10px;
+    display: block;
+    width: 100%;
+    line-height: 45px;
+    font-size: 16px;
+    color: green;
+    border: 1px solid #f5f5f5;
+    text-align: center;
+}
+
+.purchase-panel-wrapper .purchase-panel-nav-list ul li a {
+    color: #000;
+    font-weight: bold;
+}
+
+.purchase-panel-wrapper .purchase-panel-nav-list ul li.active {
+    background: #c40000;
+    color:#fff;
+}
+
+.purchase-panel-wrapper .purchase-panel-nav-list ul li.active a {
+    color: #fff;
+}
+
+.purchase-panel-wrapper .purchase-panel-body {
+    flex: auto;
+    padding: 5px;
+    overflow-y: hidden;
+}
+
+.purchase-panel-wrapper .purchase-panel-body p {
+    line-height: 25px;
+    font-size: 12px;
+    text-indent: 10px;
+    color: #000;
+}
+
+.purchase-panel-wrapper .purchase-panel-body iframe {
+    width: 100%;
+    border: none;
+    height: 360px;
+    overflow: hidden;
+}
+
+.purchase-panel-wrapper .purchase-panel-body iframe html {
+    overflow-y: hidden;
+}
+
+#purchase-panel-qrcode {
+    width: 200px;
+    height:200px;
+    margin: auto auto;
+}

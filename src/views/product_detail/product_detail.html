@@ -1,37 +1,54 @@
 <div search-bar placeholder="2017新年年货大全"></div>
 <div nav-with-logo="navBarList"></div>
-<div class="bg">
-    <div class="brand-showcase">
-        <a class="brand-logo-box"  target="_blank" ng-repeat="item in showcaseItems[brandLogoPage] track by $index">
-            <img ng-src="{{ item.logo }}" alt=""/>
-            <span>{{ item.name }}</span>
-        </a>
-    </div> 
-    <div class="brand-banners-wrapper">
-        <div class="brand-banners">
-            <div class="brand-banner-box-wrapper" ng-repeat="banner in brands track by $index">
-                <a target="_blank" ng-click="goToBrand(banner.id)" style="cursor: pointer" class="brand-banner-box">
-                    <div class="brand-banner-box-main">
-                        <img ng-src="{{ banner.smallBanner }}" />
-                        <div>
-                            <span class="desc"> {{ banner.description | limitTo: 20 }}... </span>
-                            <span class="time-left">{{ banner.time }}</span>
+<div class="kmall-container bg-gray">
+    <div class="kmall-content">
+        <div class="product-detail-wrapper">
+            <div class="product-detail-content">
+                <!--左侧图片区域-->
+                <div class="product-images">
+                    <div class="product-image-main">
+                        <img ng-if="details.product_image" ng-src="{{ details.product_image }}">
+                    </div>
+                    <div class="product-image-list"></div>
+                    <div class="product-details">
+                        <h3>{{ details.product_name }}</h3>
+                        <div class="price-panel">
+                            <p class="coupon-desc">{{ details.coupon_text }}</p>
+                            <div class="price">
+                                <p>
+                                    <em>月销量</em>
+                                    <span class="old">{{ details.monthly_sold }}件</span>
+                                </p>
+                                <p>
+                                    <em>官方价</em>
+                                    <span class="old">{{ details.price | currency:'¥' }}</span>
+                                </p>
+                                <p>
+                                    <em>本网券后价</em>
+                                    <span class="now">{{ getPriceWithCoupon(details)| currency:'¥' }}<span>(相当于{{ getDiscount(details) }}折)</span></span>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="brand-banner-box-footer">
-                        <div class="brand-banner-logo">
-                            <img ng-src="{{ banner.logo }}">
+                </div>
+                <!--右侧信息区域-->
+                <div class="purchase-guide">
+                    <div class="purchase-guide-title">
+                        优惠购买提示:
+                    </div>
+                    <div class="purchase-guide-body">
+                        <span class="purchase-guide-step">1.领取优惠券</span>
+                        <div class="step-content">
+                            <div purchase-panel="details"></div>
                         </div>
-                        <div class="brand-banner-slogon">
-                            {{ banner.description | limitTo: 30 }}
-                        </div>
-                        <!--<div class="brand-banner-number">
-                            总共 {{ banner.total_number }} 件
-                        </div>-->
-                    </div>                    
-                </a>
+                        <span class="purchase-guide-step">2.领取后直接在跳转的页面购买或者按下面提示进入购买</span>
+                        <div class="step-content">
+                            
+                        </div>                        
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-        
 </div>
+<div guess-like></div>

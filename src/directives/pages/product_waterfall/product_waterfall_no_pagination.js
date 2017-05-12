@@ -8,6 +8,12 @@ define(['app', 'css!directives/pages/product_waterfall/product_waterfall.css'], 
             },
             link: function (scope, elements, attrs) {
                 scope.items = scope.items || {};
+                scope.goToDetail = function (item) {
+                    if (localStorage && localStorage.setItem) {
+                        localStorage.setItem('p_detail', JSON.stringify(item));
+                    }
+                    $state.go('productDetail', { id: item.id });
+                }
             },
             transclude: true
         }

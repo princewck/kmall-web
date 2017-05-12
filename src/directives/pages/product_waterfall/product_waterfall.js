@@ -22,8 +22,14 @@ define(['app', 'css!directives/pages/product_waterfall/product_waterfall.css'], 
                 }
 
                 scope.goPage = function (page) {
-                    console.log();
                     if (router) $state.go(router, { page: page });
+                }
+
+                scope.goToDetail = function(item) {
+                    if (localStorage && localStorage.setItem) {
+                        localStorage.setItem('p_detail' + item.id, JSON.stringify(item));
+                    }
+                    $state.go('productDetail', {id: item.id});
                 }
             },
             transclude: true
