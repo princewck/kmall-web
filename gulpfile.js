@@ -226,7 +226,7 @@ function packFirstPageFiles() {
             console.log(dirs);
         });
         console.log('临时文件全部生成了，开始压缩打包');
-        var blobSources = scriptsWillNotHandled.map((s) => s + '.js').concat(['./temp/entry/**.js','./temp/scripts/**.js']);
+        var blobSources = scriptsWillNotHandled.map((s) => path.resolve('src', s) + '.js').concat(['./temp/entry/**.js','./temp/scripts/**.js']);
         console.log('blobSources', blobSources);
         console.log('----合并以下js文件-----');
         console.log(blobSources);

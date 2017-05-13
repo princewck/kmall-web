@@ -1,15 +1,18 @@
 ; (function (global, factory) {
     if (typeof module === 'object' && typeof module.exports === 'object') {
-        module.exports = factory();
-    } else if (typeof define && define.amd) {
-        console.log('web');
         var config = factory();
-        require.config(config.config);
+        config.homeDeps.unshift('app')
+        module.exports = config;
+    } else if (typeof define == 'function' && define.amd) {
+        var con = factory();
+        require.config(con.config);
         require.onError = function (err) {
             console.log("require error:", err, arguments);
         }
-        requirejs(config.homeDeps, function () {
-            requirejs(['angular'], function (angular) {
+        requirejs(['app'], function () {
+            var deps = con.homeDeps.shift();
+            requirejs(con.homeDeps, function () {
+                console.log(con.homeDeps);
                 angular.bootstrap(document, ['kapp']);
                 requirejs(['css!./styles/icofont/css/icofont.css']);
             });
@@ -99,6 +102,6 @@
     var commonPages = ['site-nav', 'search-bar', 'site-footer', 'kslider', 'block-group', 'product-waterfall', 'product-waterfall-no-pagination', 'guess-like', 'overlayMaker', 'lazyLoadImage', 'kPagination'];
     return {
         config: config,
-        homeDeps: commonPages.unshift('app') //首页需要加载的公用文件
+        homeDeps: commonPages //首页需要加载的公用文件
     }
 }));
