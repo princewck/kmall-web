@@ -13,7 +13,7 @@
                 <div class="coupon-box" ng-repeat="p in products.data">
                     <div class="coupon-image"><img xsrc="{{ p.product_image }}" class="lazy-image-instance"></div>
                     <div class="coupon-detail">
-                        <span class="coupon-title" ng-bind="p.product_name"></span>
+                        <span class="coupon-title" ng-bind="p.product_name | limitTo: 30" title="{{ p.product_name }}"></span>
                         <span class="coupon-sub-title" ng-bind="p.coupon_text"></span>
                         <span class="coupon-link">
                         <span class="coupon-price">
@@ -22,7 +22,7 @@
                         </span>
                         <span class="origin" ng-bind="p.price"></span>
                         </span>
-                        <a href="#" class="coupon-btn-link">马上抢</a>
+                        <a href="#" class="coupon-btn-link" ng-href="{{ goToDetail(p) }}" target="_blank">马上抢</a>
                         </span>
                         <span class="coupon-process">
                         <span class="progress-bar">

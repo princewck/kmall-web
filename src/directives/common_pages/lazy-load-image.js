@@ -38,7 +38,7 @@ define(['app'], function (app) {
                  * @param {DOM Element} image 
                  */
                 var shouldImageShown = function (image) {
-                    return image.getBoundingClientRect().top < (window.innerHeight - 150);
+                    return image.getBoundingClientRect().top < (window.innerHeight + 100);
                 }
 
                 /**
@@ -47,11 +47,13 @@ define(['app'], function (app) {
                  * @param {*} start 
                  * @param {*} end 
                  */
+                var it = null;
                 var calculateImages = function (imageList, start, end) {
                     var length = end - start;
                     if (end < 0) return;
                     if (shouldImageShown(imageList[end])) {
                         loadedIndex = end;
+                        it = null;
                         //销毁滚动监听
                         document.removeEventListener('scroll', scrollHandler);
                         return replaceImage(imageList, start, end);
@@ -76,10 +78,19 @@ define(['app'], function (app) {
                         image.src = _loadingImage;
                     });
                     loadedIndex = 0;
-                    calculateImages(imageList, loadedIndex, imageList.length - 1);
+                    setTimeout(function() {
+                        calculateImages(imageList, loadedIndex, imageList.length - 1);
+                        resizeHeight(imageList);
+                    }, 1000);
                 }, true);
 
-                var it = null;
+                function resizeHeight(images) {
+                    if(!images) return;
+                    images.forEach(function(image) {
+                        var height = image.height;
+                    });
+                }
+
                 var _it = null;
                 var _top = 0;
                 document.addEventListener('scroll', scrollHandler);

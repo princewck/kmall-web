@@ -12,7 +12,7 @@
         </div>
         <div class="purchase-panel-body" ng-hide="!item.coupon_price">
             <div class="purchase-panel-box" ng-show="purchasePanelIndex == 1">
-                <p>点击下方“立即领券”按钮领券购买<a class="pull-right" target="_blank" ng-href="{{ item.coupon_link }}">领券有问题?点我</a></p>
+                <p>点击下方“立即领券”按钮领券购买</p>
                 <div class="coupon-frame">
                     <div class="coupon-frame-content">
                         <iframe style="height:100%;" src="{{ trustAsUrl(item.coupon_short_url) }}"></iframe>

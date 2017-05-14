@@ -12,7 +12,8 @@ define(['app', 'css!directives/pages/product_waterfall/product_waterfall.css'], 
                     if (localStorage && localStorage.setItem) {
                         localStorage.setItem('p_detail', JSON.stringify(item));
                     }
-                    $state.go('productDetail', { id: item.id });
+                    var url = $state.href('productDetail', { id: item.id });
+                    return url;
                 }
 
                 scope.isToday = function(date) {

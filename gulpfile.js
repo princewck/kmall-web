@@ -57,7 +57,7 @@ gulp.task('clean', function () {
 })
 
 
-gulp.task('moveAsserts', ['clean'], function () {
+gulp.task('moveAsserts', ['clean', 'revList'], function () {
     gulp.src('./src/bower_components/**/*')
         .pipe(gulp.dest('./dist/bower_components'));
     gulp.src('./src/index.html')
@@ -79,9 +79,6 @@ gulp.task('moveAsserts', ['clean'], function () {
                         path.resolve('./src', dir, '**/**.ttf'),
                         path.resolve('./src', dir, '**/**.woff')
                     ]).pipe(gulp.dest(path.resolve('./dist/', dir)))
-                        .on('end', function () {
-                            console.log('文件拷贝完成');
-                        });
                 }(dir)
                 );
             });
@@ -89,7 +86,7 @@ gulp.task('moveAsserts', ['clean'], function () {
     });
 });
 
-gulp.task('uglifyScripts', ['clean'], function () {
+gulp.task('uglifyScripts', ['clean','revList'], function () {
     fs.readdir('./src', function (err, dirs) {
         if (err) throw new Error(err);
         else {
@@ -109,7 +106,7 @@ gulp.task('uglifyScripts', ['clean'], function () {
     });
 });
 
-gulp.task('compressStyles', ['clean'], function () {
+gulp.task('compressStyles', ['clean', 'revList'], function () {
     fs.readdir('./src', function (err, dirs) {
         if (err) throw new Error(err);
         else {
@@ -129,8 +126,8 @@ gulp.task('compressStyles', ['clean'], function () {
     });
 });
 
-gulp.task('default', ['moveAsserts', 'uglifyScripts', 'compressStyles'], function () {
-    console.log('所有构建任务完成');
+gulp.task('default', ['revList', 'moveAsserts', 'uglifyScripts', 'compressStyles'], function () {
+    console.log('所有构建任务将在3秒内完成');
 });
 
 gulp.task('revList', function () {
