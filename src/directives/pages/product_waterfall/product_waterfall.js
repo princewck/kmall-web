@@ -39,7 +39,15 @@ define(['app', 'css!directives/pages/product_waterfall/product_waterfall.css'], 
                     var day = d.getDate();
                     var now = new Date();
                     return year == now.getFullYear() && month == now.getMonth() && day == now.getDate();
-                }                
+                }
+
+                scope.getDiscountRate = function(item) {
+                    var price = item.price;
+                    var newPrice = item.price - Number(item.coupon_price);
+                    if (newPrice < 0) return -1;
+                    var rate = Number(Number(newPrice/price)*10).toFixed(1);
+                    return rate;
+                }          
             },
             transclude: true
         }

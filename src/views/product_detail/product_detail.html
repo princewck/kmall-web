@@ -19,13 +19,13 @@
                                     <em>月销量</em>
                                     <span class="old">{{ details.monthly_sold }}件</span>
                                 </p>
-                                <p>
+                                <p ng-show="details.coupon_price > 0">
                                     <em>官方价</em>
                                     <span class="old">{{ details.price | currency:'¥' }}</span>
                                 </p>
                                 <p>
-                                    <em>本网券后价</em>
-                                    <span class="now">{{ getPriceWithCoupon(details)| currency:'¥' }}<span>(相当于{{ getDiscount(details) }}折)</span></span>
+                                    <em>{{ details.coupon_price > 0 ? '本网券后价' : '价格' }}</em>
+                                    <span class="now">{{ getPriceWithCoupon(details)| currency:'¥' }}<span ng-show="details.coupon_price > 0">(相当于{{ getDiscount(details) }}折)</span></span>
                                 </p>
                             </div>
                         </div>

@@ -19,7 +19,7 @@
 
 @media screen and (min-width: 1024px) and (max-width:1279px) {
     .logo-block2 {
-        left:0;
+        left:-30px;
     }   
 }
 

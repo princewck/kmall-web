@@ -80,16 +80,8 @@ define(['app'], function (app) {
                     loadedIndex = 0;
                     setTimeout(function() {
                         calculateImages(imageList, loadedIndex, imageList.length - 1);
-                        resizeHeight(imageList);
                     }, 1000);
                 }, true);
-
-                function resizeHeight(images) {
-                    if(!images) return;
-                    images.forEach(function(image) {
-                        var height = image.height;
-                    });
-                }
 
                 var _it = null;
                 var _top = 0;

@@ -203,6 +203,10 @@
     .coupon-box {
         width: 400px;
     }
+
+    .coupon-box img {
+         height:158px;
+    }     
 }
 
 @media screen and (min-width: 1024px) and (max-width:1279px) { 
@@ -212,6 +216,9 @@
     .coupon-box {
         width: 500px;
     }    
+    .coupon-box img {
+         height:198px;
+    }     
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1919px) {
@@ -220,7 +227,11 @@
     }
     .coupon-box {
         width: 400px;
-    }    
+    }   
+
+    .coupon-box img {
+         height:158px;
+    }      
 }
 
 @media screen and (min-width:1920px) {
@@ -229,5 +240,8 @@
     }   
     .coupon-box {
         width: 480px;
+    }
+    .coupon-box img {
+         height:190px;
     }      
 }

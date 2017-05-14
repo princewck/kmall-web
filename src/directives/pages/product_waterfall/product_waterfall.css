@@ -57,6 +57,7 @@
     background: url('../../../images/inew.png');
     background-size: contain;
     background-repeat: no-repeat;
+    z-index: 10000;
 }
 
 .is-tmall {
@@ -205,6 +206,10 @@
    .guess-body .guess-item-wrapper {
        width:200px;
    }
+   .guess-body .guess-item-wrapper a{
+        height: 300px;
+        overflow-y:hidden;
+   }
    .guess-body .guess-item-wrapper img.item-pic-img {
        height: 194px;
    }
@@ -223,6 +228,12 @@
    .guess-body .guess-item-wrapper img.item-pic-img {
        height: 244px;
    }    
+
+   .guess-body .guess-item-wrapper a{
+        height: 350px;
+        overflow-y:hidden;
+   }
+
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1919px) {
@@ -237,7 +248,12 @@
    }
    .guess-body .guess-item-wrapper img.item-pic-img {
        height: 234px;
-   }   
+   }
+
+   .guess-body .guess-item-wrapper a{
+        height: 340px;
+        overflow-y:hidden;
+   }      
 }
 
 @media screen and (min-width:1920px) {
@@ -253,4 +269,8 @@
    .guess-body .guess-item-wrapper img.item-pic-img {
        height: 282px;
    }   
+   .guess-body .guess-item-wrapper a{
+        height: 390px;
+        overflow-y:hidden;
+   }    
 }
