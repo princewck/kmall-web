@@ -64,7 +64,8 @@
     width: 100%;
     height: auto;
     border-bottom: 1px dashed #cdcdcd;
-    height: 80px;
+    display: flex;
+    flex-direction: row;
 }
 
 .product-category {
@@ -73,21 +74,21 @@
 
 .product-filter-brand-key,
 .product-filter-cate-key {
-    width: 60px;
+    flex: auto;
+    min-width: 80px;
     background: #d5d5d5;
-    height: 100%;
-    line-height: 80px;
     float: left;
     font-size: 12px;
     font-weight: bold;
     color:gray;
     text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 .product-filter-brand-values,
 .product-filter-cate-values {
-    float: left;
-    height: 100%;
+    flex: auto;
 }
 
 .product-filter-brand-values ul,
