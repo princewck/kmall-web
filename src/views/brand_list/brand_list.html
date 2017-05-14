@@ -2,7 +2,7 @@
 <div nav-with-logo="navBarList"></div>
 <div class="bg">
     <div class="brand-showcase">
-        <a class="brand-logo-box"  target="_blank" ng-repeat="item in showcaseItems[brandLogoPage] track by $index">
+        <a class="brand-logo-box" ng-click="goToBrand(item.id)"  target="_blank" ng-repeat="item in showcaseItems[brandLogoPage] track by $index">
             <img ng-src="{{ item.logo }}" alt=""/>
             <span>{{ item.name }}</span>
         </a>
