@@ -10,7 +10,7 @@
                 <div ng-show="items.data.length" class="guess-item-wrapper lazy-image-list-item" ng-repeat="item in items.data">
                     <a href="javascript:;" ng-click="goToDetail(item)" class="guess-item" target="_blank">
                         <span class="item-pic">
-                            <div class="inew"></div>
+                            <div class="inew" ng-show="isToday(item.creation_date)"></div>
                             <div class="saved-money" ng-show="item.coupon_price && item.coupon_price > 0">
                                 <div>内部优惠券</div>
                                 <div>省<span ng-bind="item.coupon_price"></span>元</div>

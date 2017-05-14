@@ -7,6 +7,8 @@ var path = require('path');
 var csso = require('gulp-csso');
 var concat = require('gulp-concat');
 var q = require('q');
+var revList = require('gulp-rev-list');
+var rename = require('gulp-rename');
 
 //递归删除指定目录
 var rmdirSync = (function () {
@@ -44,10 +46,12 @@ var rmdirSync = (function () {
 gulp.task('clean', function () {
     var defer = q.defer();
     rmdirSync('./dist', function () {
-        rmdirSync('./temp', function () {
-            console.log('清空打包路径success!!!');
+        // rmdirSync('./temp', function () {
+        console.log('清空打包路径success!!!');
+        setTimeout(function () {
             defer.resolve();
-        });
+        }, 2000);
+        // });
     });
     return defer.promise;
 })
@@ -58,50 +62,34 @@ gulp.task('moveAsserts', ['clean'], function () {
         .pipe(gulp.dest('./dist/bower_components'));
     gulp.src('./src/index.html')
         .pipe(gulp.dest('./dist/'));
-    var deferArray = [];
     fs.readdir('./src', function (err, dirs) {
         if (err) throw new Error(err);
         else {
             dirs.forEach(function (dir) {
                 //取出index.html
                 if (dir.indexOf('.html') >= 0 || dir[0] == '.' || dir == 'bower_components') return;
-                deferArray.push(
-                    (function (dir) {
-                        let defer = q.defer();
-                        gulp.src([
-                            path.resolve('./src', dir, '**/**.html'),
-                            path.resolve('./src', dir, '**/**.png'),
-                            path.resolve('./src', dir, '**/**.jpg'),
-                            path.resolve('./src', dir, '**/**.gif'),
-                            path.resolve('./src', dir, '**/**.eot'),
-                            path.resolve('./src', dir, '**/**.svg'),
-                            path.resolve('./src', dir, '**/**.ttf'),
-                            path.resolve('./src', dir, '**/**.woff')
-                        ]).pipe(gulp.dest(path.resolve('./dist/', dir)))
+                (function (dir) {
+                    gulp.src([
+                        path.resolve('./src', dir, '**/**.html'),
+                        path.resolve('./src', dir, '**/**.png'),
+                        path.resolve('./src', dir, '**/**.jpg'),
+                        path.resolve('./src', dir, '**/**.gif'),
+                        path.resolve('./src', dir, '**/**.eot'),
+                        path.resolve('./src', dir, '**/**.svg'),
+                        path.resolve('./src', dir, '**/**.ttf'),
+                        path.resolve('./src', dir, '**/**.woff')
+                    ]).pipe(gulp.dest(path.resolve('./dist/', dir)))
                         .on('end', function () {
-                            defer.resolve();
                             console.log('文件拷贝完成');
                         });
-                        return defer.promise;
-                    }(dir))
+                }(dir)
                 );
             });
         }
     });
-    q.all(deferArray).then(function () {
-        console.log('---------------------------------');
-        console.log(deferArray);
-        setTimeout(function() {
-            replaceMainJs();
-        }, 5000);
-        console.log('---------------------------------');
-    });
 });
 
 gulp.task('uglifyScripts', ['clean'], function () {
-    // gulp.src('./src/common/**/**.js')
-    //     .pipe(minify())
-    //     .pipe(gulp.dest('./dist/src/common'));
     fs.readdir('./src', function (err, dirs) {
         if (err) throw new Error(err);
         else {
@@ -122,9 +110,6 @@ gulp.task('uglifyScripts', ['clean'], function () {
 });
 
 gulp.task('compressStyles', ['clean'], function () {
-    // gulp.src('./src/common/**/**.css')
-    //     .pipe(csso())
-    //     .pipe(gulp.dest('./dist/src/common'));
     fs.readdir('./src', function (err, dirs) {
         if (err) throw new Error(err);
         else {
@@ -144,123 +129,25 @@ gulp.task('compressStyles', ['clean'], function () {
     });
 });
 
-gulp.task('firstScreen', ['clean'], function () {
-    console.log('打包首屏公共文件');
-    packFirstPageFiles();
-});
-
-//替换main.js为打包合并后的文件
-function replaceMainJs() {
-    gulp.src('./src/scripts/main.js')
-        .pipe(replace(/requirejs\(config.homeDeps/, 'requirejs([\'./scripts/first-page\', \'css!./styles/first-page.css\']'))
-        .pipe(minify())
-        .pipe(gulp.dest('./dist/scripts'))
-        .on('end', () => { console.log('main.js generated successfully!') });
-}
-
-gulp.task('default', ['moveAsserts', 'uglifyScripts', 'compressStyles', 'firstScreen'], function () {
+gulp.task('default', ['moveAsserts', 'uglifyScripts', 'compressStyles'], function () {
     console.log('所有构建任务完成');
 });
 
-/**
- * bastPath 路径前缀 './dist', './temp'
- * requirejs 的 config 文件内容，获取其中的paths和shim
- * dest 输出目录
- */
-function packFirstPageFiles() {
-    var config = main.config;
-    var commons = main.homeDeps;
-    var scripts = [];
-    var scriptsWillNotHandled = [];
-    var styles = [];
-    Object.keys(main.config.paths).forEach(function (moduleId) {
-        var script = main.config.paths[moduleId];
-        if (script && new RegExp(/\.\/bower_components/).test(script)) {
-            scriptsWillNotHandled.push(script);
-        } else if (script && new RegExp(/^css\!/g).test(script)) {
-            styles.push(script);
-        } else if (script && new RegExp(/^\.\//g).test(script)) {
-            scripts.push({
-                id: moduleId,
-                path: script
-            });
-        }
-        if (main.config.shim[moduleId] && main.config.shim[moduleId]['deps']) {
-            var deps = main.config.shim[moduleId]['deps'];
-            deps.forEach(function (dep) {
-                (function (dep) {
-                    console.log(dep);
-                    if (new RegExp(/\.\/bower_components/).test(dep)) {
-                        //是自定义的js路径
-                        scriptsWillNotHandled.push(dep);
-                    } else if (new RegExp(/^css\!/g).test(dep)) {
-                        //是css
-                        console.log('是css');
-                        styles.push(dep);
-                    } else if (new RegExp(/^\.\//g).test(dep)) {
-                        //是其他模块
-                        (main.config.paths[dep])
-                            &&
-                            scripts.push({
-                                id: dep,
-                                path: main.config.paths[dep]
-                            });
-                    }
-                }(dep));
-            });
-        }
-    });
-    var promiseArr = [];
-    scripts.forEach(function (script) {
-        (function (script) {
-            console.log(script.id, script.path);
-            var dest = './temp/scripts';
-            if (script.id == 'app') dest = './temp/entry';
-            promiseArr.push(addModuleId(script.id, script.path, './src', dest));
-        }(script));
-    });
-    q.all(promiseArr).then(function () {
-        //临时文件全部生成了，开始压缩打包
-        fs.readdir(path.resolve('./temp/scripts'), function (err, dirs) {
-            if (err) throw new Error(err);
-            console.log(dirs);
-        });
-        console.log('临时文件全部生成了，开始压缩打包');
-        var blobSources = scriptsWillNotHandled.map((s) => path.resolve('src', s) + '.js').concat(['./temp/entry/**.js','./temp/scripts/**.js']);
-        console.log('blobSources', blobSources);
-        console.log('----合并以下js文件-----');
-        console.log(blobSources);
-        gulp.src(blobSources)
-            // .pipe(minify())
-            .pipe(concat('first-page.js'))
-            .pipe(gulp.dest('./dist/scripts'));
-
-        console.log('样式文件', styles.map((s) => path.resolve('./src', s.replace('css!', ''))));
-        gulp.src(styles.map((s) => path.resolve('./src/', s.replace('css!', ''))))
-            .pipe(concat('first-page.css'))
-            .pipe(csso())
-            .pipe(gulp.dest('./dist/styles/'))
-            .on('end', function () {
-                console.log('合并首屏公用样式文件完成');
-            });
-    });
-}
-
-function addModuleId(id, filePath, basePath, destPath, callback) {
-    console.log(arguments);
-    var defer = q.defer();
-    var patten = /.+\.js/ig;
-    var _path = path.resolve(basePath, filePath);
-    var cssFilePatern = /^css\!/ig
-    _path = _path + '.js';
-    gulp.src(_path)
-        .pipe(replace(/define(.*)\((.*)\[/g, 'define(\'' + id + '\',['))
-        .pipe(gulp.dest(destPath))
+gulp.task('revList', function () {
+    return gulp.src(['src/**/*.*', '!src/bower_components/**/*.*'])
+        .pipe(revList())
+        .pipe(revList.manifest('fileHashlist.js', {winval: 'fileHashlist'}))
+        // .pipe(rename('fileHashList.js'))
+        .pipe(gulp.dest('./src/scripts/'))
         .on('end', function () {
-            console.log('end');
-            defer.resolve();
-        });
-    callback && callback();
-    return defer.promise;
-}
+            console.log('hash list generated!');
+        })
+});
 
+
+gulp.task('watch', ['default'], function () {
+    gulp.watch([
+        './src/**/**/*.js',
+        './src/**/**/*.css'
+    ], ['default']);
+});

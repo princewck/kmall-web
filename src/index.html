@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-    <!-- <link rel="SHORTCUT ICON" href="favicon.png" type="image/png" /> -->
-	<title>KMALL</title>
+	<!-- <link rel="SHORTCUT ICON" href="favicon.png" type="image/png" /> -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- HTTP 1.1 -->
+	<meta http-equiv="pragma" content="no-cache">
+	<!-- HTTP 1.0 -->
+	<meta http-equiv="cache-control" content="no-cache">
+	<!-- Prevent caching at the proxy server -->
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+	<title>券儿袋——发现好货,额外优惠!</title>
 </head>
+
 <body>
-<div id="home-page">
-	<header ng-if = "(!isState('login') && !isState('register') && !isState('forget'))">
-		<div header-site-nav></div>
-	</header>        
-	<div ui-view></div>
-	<footer  ng-if = "(!isState('login') && !isState('register') && !isState('forget'))">
-		<div site-footer></div>
-	</footer> 	
-</div>	
-<script type="text/javascript" data-main="scripts/main" src="//apps.bdimg.com/libs/require.js/2.1.11/require.min.js" async="async" ></script>
+	<div id="home-page">
+		<header ng-if="(!isState('login') && !isState('register') && !isState('forget'))">
+			<div header-site-nav></div>
+		</header>
+		<div ui-view></div>
+		<footer ng-if="(!isState('login') && !isState('register') && !isState('forget'))">
+			<div site-footer></div>
+		</footer>
+	</div>
+	<script type="text/javascript" data-main="scripts/main" src="//apps.bdimg.com/libs/require.js/2.1.11/require.min.js" async="async"></script>
 </body>
+
 </html>

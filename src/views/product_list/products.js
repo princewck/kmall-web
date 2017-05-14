@@ -43,7 +43,6 @@ define(['app', 'productListFilter'], function (app) {
                     }
                     $timeout(function () { $scope.products = res.data.data; }, 0);
                 } else {
-                    console.log(res);
                     $state.go('index');
                 }
             });

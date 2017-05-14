@@ -1,5 +1,5 @@
 define(['app'], function(app) {
-    app.service('configService', function($http, $q) {
+    app.service('configService', ['$http', '$q', function($http, $q) {
 
         /**
          * 获取导航链接
@@ -39,5 +39,5 @@ define(['app'], function(app) {
             getNavbars: getNavs,
             getIndexCategoriesOnBanner: getIndexCategoriesOnBanner
         }
-    });
+    }]);
 });

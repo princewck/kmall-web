@@ -1,23 +1,24 @@
 define(['app'], function(app) {
+
     app.factory('myHttpInterceptor', ['$q','$cookies', function($q, $cookies) {
         return {
           'request': function(config) {
-                  // TODO: 过滤所有url,如果是需要加小尾巴的加上小尾巴
-              //     if (config.url.indexOf('.html') > 0 && HashStaticFile) {
-              //         config.url = HashStaticFile(config.url);
-              //     }
-              // if (config.url.indexOf('api/') >= 0) {
-              //     var token = $cookies.get("sessionToken");
-              //     if (token) {
-              //         token = token.replace('/^"$/','');
-              //     } else {
-              //         token = '';
-              //     }
-              //     config.headers["F-Session"] = token;
-              //     config.cache = false;
+                //   TODO: 过滤所有url,如果是需要加小尾巴的加上小尾巴
+                  if (config.url.indexOf('.html') > 0 && appendHashQueryOnRequests) {
+                      config.url = appendHashQueryOnRequests(config.url);
+                  }
+              if (config.url.indexOf('api/') >= 0) {
+                  var token = $cookies.get("sessionToken");
+                  if (token) {
+                      token = token.replace('/^"$/','');
+                  } else {
+                      token = '';
+                  }
+                  config.headers["F-Session"] = token;
+                  config.cache = false;
 
-              //     // do something on success
-              // }
+                  // do something on success
+              }
                 return config;
           },
 

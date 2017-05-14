@@ -3,7 +3,7 @@ define([
     'common/qrcode.min',
     'css!./directives/pages/purchase_panel/purchase_panel.css?'
 ], function (app, qrcode) {
-    app.directive('purchasePanel', function ($sce, $http) {
+    app.directive('purchasePanel', ['$sce', '$http', function ($sce, $http) {
         return {
             restrict: 'AE',
             templateUrl: './directives/pages/purchase_panel/purchase_panel.html',
@@ -36,5 +36,5 @@ define([
                 item: '=purchasePanel'
             }
         }
-    });
+    }]);
 });

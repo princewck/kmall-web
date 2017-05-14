@@ -1,7 +1,6 @@
 ; (function (global, factory) {
     if (typeof module === 'object' && typeof module.exports === 'object') {
         var config = factory();
-        config.homeDeps.unshift('app')
         module.exports = config;
     } else if (typeof define == 'function' && define.amd) {
         var con = factory();
@@ -9,12 +8,51 @@
         require.onError = function (err) {
             console.log("require error:", err, arguments);
         }
-        requirejs(['app'], function () {
-            var deps = con.homeDeps.shift();
-            requirejs(con.homeDeps, function () {
-                console.log(con.homeDeps);
-                angular.bootstrap(document, ['kapp']);
-                requirejs(['css!./styles/icofont/css/icofont.css']);
+
+        appendHashQueryOnRequests = function (url) {
+            url = url.replace(/\.\//g, '');
+            if (url.indexOf("http") != 0 && window.fileHashlist && window.fileHashlist[url]) {
+                if (url.indexOf('?') == -1) {
+                    url += '?hash=' + window.fileHashlist[url];
+                } else {
+                    url += '&hash=' + window.fileHashlist[url];
+                }
+                return url;
+            }
+            return url;
+        }
+
+        // 重写nameToUrl方法,避免一些不用加小尾巴的文件加小尾巴了, 目前判断以http开头的都不加
+        require.s.contexts._.nameToUrl_old = require.s.contexts._.nameToUrl;
+        require.s.contexts._.nameToUrl = function (moduleName, ext, skipExt) {
+            var url = require.s.contexts._.nameToUrl_old(moduleName, ext, skipExt);
+            var config = require.s.contexts._.config;
+            if (url.indexOf("http") == 0) {
+                if (config.urlArgs) {
+                    url = url.replace("?" + config.urlArgs, '');
+                    url = url.replace("&" + config.urlArgs, '');
+                }
+                return url;
+            }
+            // filter hash
+            url = appendHashQueryOnRequests(url);
+
+            if (url.indexOf('fileHashList') > -1) {
+                if (url.split('?').length) {
+                    url += '?version=' + new Date().getTime();
+                }
+            }
+            return url;
+        };
+
+        require(['fileHashList'], function () {
+            requirejs(['app'], function () {
+                var deps = con.homeDeps;
+                con.homeDeps.shift();
+                requirejs(deps, function () {
+                    angular.bootstrap(document, ['kapp']);
+                    requirejs(['css!./styles/icofont/css/icofont.css']);
+                });
             });
         });
     } else {
@@ -24,7 +62,7 @@
     var BOWER_DIR = './bower_components';
     var config = {
         baseUrl: './',
-        urlArgs: "version=0.0.1",
+        // urlArgs: "version=0.0.1",
         waitSeconds: 0,
         paths: {
             'angular': BOWER_DIR + '/angular/angular.min',
@@ -36,6 +74,9 @@
             'angular-cookie': "//cdn.bootcss.com/angular.js/1.4.6/angular-cookies.min",
             'jquery': BOWER_DIR + '/jquery/dist/jquery.min',
             'moment': BOWER_DIR + '/moment/min/moment.min',
+
+            'fileHashList': './scripts/fileHashList',
+
             //项目相关
             'app': './scripts/app',
             'routes': './scripts/app/routes',
@@ -99,7 +140,7 @@
             }
         }
     };
-    var commonPages = ['site-nav', 'search-bar', 'site-footer', 'kslider', 'block-group', 'product-waterfall', 'product-waterfall-no-pagination', 'guess-like', 'overlayMaker', 'lazyLoadImage', 'kPagination'];
+    var commonPages = ['site-nav', 'search-bar', 'site-footer', 'kslider', 'block-group', 'product-waterfall', 'product-waterfall-no-pagination', 'guess-like', 'overlayMaker', 'lazyLoadImage', 'kPagination', 'routes', 'intercepter'];
     return {
         config: config,
         homeDeps: commonPages //首页需要加载的公用文件

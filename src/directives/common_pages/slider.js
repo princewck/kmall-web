@@ -23,7 +23,6 @@ define(['app', 'css!directives/common_pages/slider.css'], function(app) {
 
                 function setInterval() {
                     scope.it = $interval(function() {
-                        if (!l) throw new Error('slider images not specified!!!');
                         count ++;
                         scope.sliderIndex = count%l;
                     }, scope.interval || 3000);                    

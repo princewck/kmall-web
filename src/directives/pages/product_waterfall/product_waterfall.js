@@ -1,5 +1,5 @@
 define(['app', 'css!directives/pages/product_waterfall/product_waterfall.css'], function (app) {
-    app.directive('productWaterfall', function ($state) {
+    app.directive('productWaterfall', ['$state', function ($state) {
         return {
             restrict: 'A',
             templateUrl: 'directives/pages/product_waterfall/product_waterfall.html',
@@ -31,8 +31,17 @@ define(['app', 'css!directives/pages/product_waterfall/product_waterfall.css'], 
                     }
                     $state.go('productDetail', {id: item.id});
                 }
+
+                scope.isToday = function(date) {
+                    var d = new Date(date);
+                    var year = d.getFullYear();
+                    var month = d.getMonth();
+                    var day = d.getDate();
+                    var now = new Date();
+                    return year == now.getFullYear() && month == now.getMonth() && day == now.getDate();
+                }                
             },
             transclude: true
         }
-    });
+    }]);
 });
