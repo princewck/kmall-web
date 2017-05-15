@@ -74,7 +74,7 @@
 
 .product-filter-brand-key,
 .product-filter-cate-key {
-    flex: auto;
+    flex: 0 0 auto;
     min-width: 80px;
     background: #d5d5d5;
     float: left;
