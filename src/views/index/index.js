@@ -33,7 +33,9 @@ define(['app', 'configService'], function (app) {
         function getBanners() {
             $http.get('../api/web/banners').then(function(res) {
                 if (res.data.code === 0) {
-                    $scope.ksliderImages = res.data.data;
+                    $scope.ksliderImages = res.data.data.filter(function (item) {
+                        return item.pc;
+                    });
                 }
             });
         }
