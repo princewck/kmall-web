@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "ssh kmall_mobile 'cd /var/www/kmall-web && git pull && echo success!'"
+    "build": "gulp",
+    "deploy": "ssh kmall_mobile 'cd /var/www/kmall-web && git pull && build && echo success!'"
   },
   "author": "princewck@gmail.com",
   "license": "ISC",
