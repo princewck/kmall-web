@@ -10,7 +10,6 @@ define(['app', 'css!directives/common_pages/slider.css'], function(app) {
                 interval:'@'
             },
             link: function(scope, element, attr) {
-                var l = scope.images.length;
                 var count = 0;
                 scope.sliderIndex = 0;
                 
@@ -23,6 +22,7 @@ define(['app', 'css!directives/common_pages/slider.css'], function(app) {
 
                 function setInterval() {
                     scope.it = $interval(function() {
+                        var l = scope.images.length;
                         count ++;
                         scope.sliderIndex = count%l;
                     }, scope.interval || 3000);                    

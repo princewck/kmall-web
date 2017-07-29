@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp",
-    "deploy": "ssh kmall_mobile 'cd /var/www/kmall-web && git pull && build && echo success!'"
+    "deploy": "ssh kmall_mobile 'cd /var/www/kmall-web && git pull && npm run build && echo success!'"
   },
   "author": "princewck@gmail.com",
   "license": "ISC",
