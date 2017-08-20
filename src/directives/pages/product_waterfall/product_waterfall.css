@@ -86,7 +86,7 @@
     height: 25px;
     line-height: 25px;
     border: none;
-    background: #c40000;
+    background: #EC0C63;
     color:#fff;
     font-size: 12px;
     text-align: center;
@@ -94,7 +94,7 @@
 
 .guess-body .guess-item-wrapper .guess-item .item-pic > .saved-money>div:last-of-type {
     background: #ebff22;
-    color: #c40000;
+    color: #EC0C63;
     height: 30px;
     line-height: 30px;
     font-size: 15px;
@@ -122,7 +122,7 @@
 }
 
 .guess-body .guess-item-wrapper .guess-item:hover {
-    border: 1px solid #c40000;   
+    border: 1px solid #EC0C63;   
 }
 
 .guess-body .guess-item-wrapper .item-detail {

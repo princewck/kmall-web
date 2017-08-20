@@ -55,7 +55,7 @@
 }
 
 .product-filter-crumb .filter-query-btn:hover {
-    color: #c40000;
+    color: #EC0C63;
     transform: scale(.96);
 }
 
@@ -118,13 +118,13 @@
 .product-filter-cate-values ul li:hover,
 .product-filter-brand-values ul li:hover {
     transform: scale(1.1);
-    border: 1px solid #c40000;
+    border: 1px solid #EC0C63;
 }
 
 .product-filter-cate-values ul li span.delete,
 .product-filter-brand-values ul li span.delete {
     display: inline-block;
-    background: #c40000;
+    background: #EC0C63;
     color:fff;
     border-left: 1px solid #fff;
     padding: 0 3px;
@@ -138,7 +138,7 @@
 .product-filter-brand-values ul li.active,
 .product-filter-cate-values ul li.active {
     color: #fff;
-    background: #c40000;
+    background: #EC0C63;
     border: 1px solid #fff;
     padding-right: 0;
 }

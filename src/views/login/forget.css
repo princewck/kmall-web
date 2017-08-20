@@ -65,8 +65,8 @@
     font-size: 16px;
     color:#fff;
     margin-top:30px;
-    background: #c40000;
-    background: linear-gradient(red, #c40000);
+    background: #EC0C63;
+    background: linear-gradient(red, #EC0C63);
 }
 
 #login-page .login-body .input-group .btn-red:hover {

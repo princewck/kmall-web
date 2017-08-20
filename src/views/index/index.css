@@ -16,8 +16,8 @@
 
 #main-nav>.main-nav-list-wrapper {
     width: 100%;
-    height:32px;
-    background: #c40000;
+    height:35px;
+    background: #EC0C63;
 }
 
 #main-nav .main-nav-list {
@@ -25,6 +25,7 @@
     position: absolute;
     white-space: nowrap;
     left: 220px;
+    line-height: 35px;
 }
 
 #main-nav .main-nav-list>li {
@@ -46,7 +47,7 @@
     display:block;
     background: #ffffff;
     height:0;
-    border-bottom:1px solid #c40000;
+    border-bottom:1px solid #EC0C63;
     width:0;
     z-index:10000;
     -webkit-transition: all 0.5s;
@@ -136,11 +137,12 @@
 #banner-slider .cate_block  .cate-title {
     display: block;
     position: absolute;
-    margin-top:-32px;
+    margin-top:-35px;
     box-sizing: border-box;
     width:200px;
-    height:32px;
-    background: darkred;
+    height:35px;
+    line-height: 35px;
+    background: rgba(165, 22, 44, .6);
 }
 
 #banner-slider .cate_block  .cate-title i,
@@ -152,7 +154,7 @@
 }
 
 #banner-slider .cate_block .cate-content {
-    background: rgba(255, 255, 255, .8);
+    background: rgba(0, 0, 0, .3);
     width:200px;
     /*height:100%;*/
     position: absolute;
@@ -161,7 +163,7 @@
     box-sizing: border-box;
     margin-left: 15px;
     padding-left:15px;
-    color:#555;
+    color:#fff;
     -webkit-animation: zoomInY .5s 1s ease;
             animation: zoomInY .5s 1s ease;
     -webkit-animation-fill-mode: both;
@@ -170,7 +172,7 @@
 }
 
 .cate-content a:hover {
-    color: #c40000;
+    color: rgb(53, 218, 137);
     text-decoration: underline;
 }
 
@@ -214,7 +216,7 @@
 }
 
 #banner-slider .user-login-block .login-info  .login-btn {
-    background: #c40000;
+    background: #EC0C63;
     border: 1px solid #888;
     line-height: 1em;
     font-size: 0.7em;

@@ -48,7 +48,7 @@
 
 .login-panel form .input-group input[type="button"] {
     width: 100%;
-    background: #c40000;
+    background: #EC0C63;
     color:#fff;
     font: 16px;
     text-align: center;
@@ -105,7 +105,7 @@
 }
 
 .register-and-forgoten a.register-link {
-    color: #c40000;
+    color: #EC0C63;
 }
 
 .register-and-forgoten a:hover {
