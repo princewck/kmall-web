@@ -19,11 +19,18 @@ define(['app'], function (app) {
             link: function (scope, elements, attrs) {
                 var loadedIndex = 0;
                 var imagesContaner = elements[0];
+                function thumb(url) {
+                    if (!url) return url;
+                    if (url.indexOf('alicdn') >= 0 || url.indexOf('tbcdn.cn') >= 0) {
+                        return url + '_200x200.jpg';
+                    }
+                    return url;
+                }
 
                 var replaceImage = function (imageList, start, end) {
                     for (var i = start; i <= end; i++) {
                         (function (i) {
-                            var url = scope.lazyImageList[i].product_image;
+                            var url = thumb(scope.lazyImageList[i].product_image);
                             var _image = new Image();
                             _image.onload = function () {
                                 imageList[i].src = url;
