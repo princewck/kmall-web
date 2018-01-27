@@ -52,7 +52,7 @@ define(['app', 'configService'], function (app) {
                     $scope.blockGroups = res.data.data.map(function (group) {
                         var _group = angular.copy(group);
                         group.list = group.list.map(function (item) {
-                            if (item.image && item.image.indexOf('http://')) {
+                            if (item.image && item.image.indexOf('http://') > -1) {
                                 item.image = item.image.replace('http', 'https');
                             }
                             return {

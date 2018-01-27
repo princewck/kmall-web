@@ -9,9 +9,9 @@ define(['app', 'css!directives/pages/product_waterfall/product_waterfall.css'], 
                 stateParams: '=',
             },
             link: function (scope, elements, attrs) {
-                scope.items = scope.items || [];
-                scope.$items = items.map(function (item) {
-                    if (item.product_image && item.product_image.indexOf('https://') > -1) {
+                scope.items = scope.items || {};
+                scope.items.data = (scope.items.data || []).map(function (item) {
+                    if (item.product_image && item.product_image.indexOf('http://') > -1) {
                         item.product_image = item.product_image.replace('http', 'https');
                     }
                     return item;
