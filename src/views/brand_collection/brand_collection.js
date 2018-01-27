@@ -20,7 +20,13 @@ define(['app'], function(app) {
                     }
                     if (images && images.logos && images.logos.length) {
                         brand.logo = images.logos[0];
-                    }                    
+                    }         
+                    if (brand.logo && brand.logo.indexOf('http://') > -1) {
+                        brand.logo = brand.logo.replace('http', 'https');
+                    }  
+                    if (brand.banner && brand.banner.indexOf('http://') > -1) {
+                        brand.banner = brand.banner.replace('http', 'https');
+                    }           
                     $scope.brand = brand;
                 }
             });

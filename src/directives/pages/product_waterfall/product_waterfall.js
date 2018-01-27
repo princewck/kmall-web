@@ -9,7 +9,13 @@ define(['app', 'css!directives/pages/product_waterfall/product_waterfall.css'], 
                 stateParams: '=',
             },
             link: function (scope, elements, attrs) {
-                scope.items = scope.items || {};
+                scope.items = scope.items || [];
+                scope.$items = items.map(function (item) {
+                    if (item.product_image && item.product_image.indexOf('https://') > -1) {
+                        item.product_image = item.product_image.replace('http', 'https');
+                    }
+                    return item;
+                });                
                 scope.currentPage = scope.items.currentPage || 1;
                 var router = attrs.state;
                 scope.getPages = function () {

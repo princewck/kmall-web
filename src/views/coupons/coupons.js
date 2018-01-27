@@ -39,7 +39,12 @@ define(['app', 'couponListFilter'], function (app) {
             var loading = overlayMaker.loading(document.querySelector('#coupon-container'));
             $http.post('../api/web/products/query/p/' + page, params, { headers: { 'Content-Type': 'application/json' } }).then(function (res) {
                 if (res.data.code === 0) {
-                    $scope.products = res.data.data
+                    $scope.products = (res.data.data || []).map(function (p) {
+                        if (p.product_image && p.product_image.indexOf('http://') > -1) {
+                            p.product_image = p.product_image.replace('http', 'https');
+                        }
+                        return p;
+                    });
                 } else {
                     $state.go('index');
                 }

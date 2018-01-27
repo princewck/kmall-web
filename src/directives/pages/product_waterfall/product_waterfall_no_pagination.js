@@ -7,7 +7,13 @@ define(['app', 'css!directives/pages/product_waterfall/product_waterfall.css'], 
                 items: '=productWaterfallNoPagination',
             },
             link: function (scope, elements, attrs) {
-                scope.items = scope.items || {};
+                scope.items = scope.items || [];
+                scope.$items = items.map(function (item) {
+                    if (item.product_image && item.product_image.indexOf('https://') > -1) {
+                        item.product_image = item.product_image.replace('http', 'https');
+                    }
+                    return item;
+                });
                 scope.goToDetail = function (item) {
                     if (localStorage && localStorage.setItem) {
                         localStorage.setItem('p_detail', JSON.stringify(item));

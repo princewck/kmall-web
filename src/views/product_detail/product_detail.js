@@ -35,6 +35,9 @@ define(['app', 'purchasePanel'], function (app) {
         function init(id) {
             $scope.loading = true;
             loadProductTbkDetail(id).then(function (details) {
+                if (details.product_image && details.product_image.indexOf('http://') > -1) {
+                    details.product_image = details.product_image.replace('http', 'https');
+                }
                 $scope.details = details;
                 console.log(details);
                 $scope.loading = false;

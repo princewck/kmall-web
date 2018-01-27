@@ -7,6 +7,10 @@ define(['app'], function(app) {
             return $state.go('brandCollection', {brandId: brandId});
         }
 
+        function https(url) {
+            return url && url.indexOf('http://') > -1 && url.replace('http', 'https') || url;
+        }
+
 
         function init() {
             $scope.brands = [];
@@ -14,9 +18,13 @@ define(['app'], function(app) {
                 if (res.data.code === 0) {
                     var banners = res.data.data.map(function(b) {
                         var images = angular.fromJson(b.image);
-                        b.logo = (images.logos && images.logos.length) ? images.logos[0] : null;
+                        b.logo = (images.logos && images.logos.length) ? images.logos[0] : 
+                        null;
                         b.banner = (images.banners && images.banners.length) ? images.banners[0] : null;
                         b.smallBanner = (images.smallBanners && images.smallBanners.length) ? images.smallBanners[0] : null;
+                        b.logo = https(b.logo);
+                        b.banner = https(b.banner);
+                        b.smallBanner = https(b.smallBanner);
                         return b;
                     }).filter(function(b) {
                         return b.logo && b.banner && b.smallBanner;

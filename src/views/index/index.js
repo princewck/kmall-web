@@ -34,6 +34,9 @@ define(['app', 'configService'], function (app) {
             $http.get('../api/web/banners').then(function(res) {
                 if (res.data.code === 0) {
                     $scope.ksliderImages = res.data.data.filter(function (item) {
+                        if (item.image && item.image.indexOf('http://') > -1) {
+                            item.image = item.image.replace('http', 'https');
+                        }
                         return item.pc;
                     });
                 }
@@ -49,6 +52,9 @@ define(['app', 'configService'], function (app) {
                     $scope.blockGroups = res.data.data.map(function (group) {
                         var _group = angular.copy(group);
                         group.list = group.list.map(function (item) {
+                            if (item.image && item.image.indexOf('http://')) {
+                                item.image = item.image.replace('http', 'https');
+                            }
                             return {
                                 main_pic: item.image,
                                 title: item.title,
