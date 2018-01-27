@@ -8,7 +8,7 @@
                     />
                     <span>好像还没有你找的商品, 小二会马上补货哒~</span>
                 </div>
-                <div ng-show="items.data.length" class="guess-item-wrapper lazy-image-list-item" ng-repeat="item in $items.data track by $index">
+                <div ng-show="items.data.length" class="guess-item-wrapper lazy-image-list-item" ng-repeat="item in items.data track by $index">
                     <a  ng-href="{{ goToDetail(item) }}" class="guess-item" target="_blank">
                         <span class="item-pic">
                             <div class="inew"></div>
