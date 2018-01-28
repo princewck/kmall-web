@@ -38,7 +38,14 @@ define(['app'], function(app) {
             $http.get('../api/web/brand/'+ brandId +'/products/p/'+ page).then(function(res) {
                 if (res.data.code === 0) {
                     loading.hide();
-                    $scope.products = res.data.data;
+                    var data = res.data.data;
+                    data.data = (data.data || []).map(function (p) {
+                        if (p.product_image && p.product_image.indexOf('http://') > -1) {
+                            p.product_image = p.product_image.replace('http', 'https');
+                        }
+                        return p;
+                    });
+                    $scope.products = data;
                 }
             });
         }

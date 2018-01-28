@@ -12,7 +12,14 @@ define(['app'], function(app) {
             }).then(function(res) {
                 loading.hide();
                 if (res.data.code === 0) {
-                    $scope.result = res.data.data;
+                    var data = res.data.data;
+                    data.data = (data.data || []).map(function (p) {
+                        if (p.product_image && p.product_image.indexOf('http://') > -1) {
+                            p.product_image = p.product_image.replace('http', 'https');
+                        }
+                        return p;
+                    });                    
+                    $scope.result = data;
                 }
             });
         }

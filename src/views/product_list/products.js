@@ -41,7 +41,14 @@ define(['app', 'productListFilter'], function (app) {
                         params.page = page;
                         $state.go('productsSearcher', params);
                     }
-                    $timeout(function () { $scope.products = res.data.data; }, 0);
+                    var data = res.data.data;
+                    data.data = (data.data || []).map(function (p) {
+                        if (p.product_image && p.product_image.indexOf('http://') > -1) {
+                            p.product_image = p.product_image.replace('http', 'https');
+                        }
+                        return p;
+                    });
+                    $timeout(function () { $scope.products = data; }, 0);
                 } else {
                     $state.go('index');
                 }
