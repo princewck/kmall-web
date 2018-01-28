@@ -24,7 +24,14 @@ define(['app', 'css!directives/pages/guess_like/guess_like.css'], function(app) 
                             }
                             res.data.data.data = result;
                             loading.hide();
-                            scope.result = res.data.data;
+                            var data = res.data.data;
+                            data.data = (data.data || []).map(function (p) {
+                                if (p.product_image && p.product_image.indexOf('http://') > -1) {
+                                    p.product_image = p.product_image.replace('http', 'https');
+                                }
+                                return p;
+                            });
+                            scope.result = data;
                         }
                     });
                 }
